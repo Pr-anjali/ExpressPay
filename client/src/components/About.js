@@ -4,7 +4,9 @@ import aboutpic from "../images/about.png";
 // import { useHistory } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 
+// const displayRazorpay =(amount) =>{
 
+// }
 const About = () => {
 
   const navigate = useNavigate();
@@ -24,8 +26,9 @@ const About = () => {
             const data = await res.json();
             console.log(data);
             setUserData(data);
+            console.log(res.status)
 
-            if (!res.status === 200) {
+            if (!res.status === 200) {     
                 const error = new Error(res.error);
                 throw error;
             }
@@ -33,7 +36,7 @@ const About = () => {
         } 
         catch (err) {
             console.log(err);
-            navigate.push('/login');
+            navigate('/login');
         }
     }
 
@@ -187,6 +190,11 @@ const About = () => {
                     </div>
 
                 </form>
+                {/* <div className="buttons">
+                     <button onClick={()=>displayRazorpay(bankTransfer)}>
+                      BUY NOW
+                     </button>
+                </div> */}
            </div>
         </>
     )

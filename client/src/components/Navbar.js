@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap'
 import 'bootstrap/js/dist/util';
 import 'bootstrap/js/dist/dropdown';
-import logo from "../images/logo4.png";
+import logo from "../images/expressPayLogo.jpg";
 import {Link} from 'react-router-dom';
 import {UserContext} from "../App";
 
