@@ -12,6 +12,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Errorpage from './components/Errorpage'
 import Logout from "./components/Logout";
 import { initialState,reducer } from '../src/reducer/UseReducer'
+import Referral from './components/Referral'
 
 // 1: contextAPI
 export const UserContext = createContext();
@@ -28,6 +29,7 @@ const App = () => {
     <Route exact path='/' element={<Home/>}></Route>
       <Route exact path='/about' element={<About/>}></Route>
       <Route exact path='/rewards' element={<Rewards/>}></Route>
+      <Route exact path='/referral' element={<Referral/>}></Route>
       <Route exact path='/login' element={<Login/>}></Route>
       <Route exact path='/contact' element={<Contact/>}></Route>
       <Route exact path='/signup' element={<Signup/>}></Route>
