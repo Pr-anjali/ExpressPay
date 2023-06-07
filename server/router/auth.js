@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const express = require('express');
+const dotenv =require("dotenv")
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const authenticate = require("../middleware/authenticate");
@@ -100,7 +101,7 @@ router.post('/signin', async (req, res) => {
             console.log(token);
 
             res.cookie("jwtoken", token, {
-                expires: new Date(Date.now() + 25892000000),
+                expires: new Date(Date.now() + 25892000000),  //one month
                 httpOnly:true
             });
             

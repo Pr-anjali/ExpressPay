@@ -1,12 +1,7 @@
 import React, {useEffect, useState}  from 'react'
 import aboutpic from "../images/about.png";
-
-// import { useHistory } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 
-// const displayRazorpay =(amount) =>{
-
-// }
 const About = () => {
 
   const navigate = useNavigate();
@@ -43,6 +38,9 @@ const About = () => {
     useEffect(() => {
         callAboutPage();
     }, []);
+
+
+
 
     return (
         <>
@@ -190,14 +188,15 @@ const About = () => {
                     </div>
 
                 </form>
-                {/* <div className="buttons">
-                     <button onClick={()=>displayRazorpay(bankTransfer)}>
-                      BUY NOW
-                     </button>
-                </div> */}
+                <div className="buttons">
+                    
+                </div>
+               
            </div>
+           
         </>
     )
 }
 
 export default About
+

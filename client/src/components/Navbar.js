@@ -24,6 +24,9 @@ const Navbar = () => {
           <Link className="nav-link" to="/contact">Contact</Link>
         </li>
         <li className="nav-item" nav class="navbar navbar-light bg-light">
+          <Link className="nav-link" to="/rewards">Rewards</Link>
+        </li>
+        <li className="nav-item" nav class="navbar navbar-light bg-light">
           <Link className="nav-link" to="/logout">Logout</Link>
         </li>
         </div>
