@@ -1,5 +1,5 @@
 import React,{useContext, useState} from 'react';
-import loginpic from "../images/login.png";
+import loginpic from "../images/login1.jpg";
 import { NavLink,useNavigate } from 'react-router-dom';
 import { UserContext } from '../App';
 
