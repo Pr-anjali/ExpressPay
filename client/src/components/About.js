@@ -1,6 +1,6 @@
 import React, {useEffect, useState}  from 'react'
 import aboutpic from "../images/about1.png";
-
+import logo from "../images/expressPayLogo.jpg";
 // import { useHistory } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 
@@ -33,7 +33,7 @@ const About = () => {
         } 
         catch (err) {
             console.log(err);
-            navigate('/login');
+            //navigate('/login');
         }
     }
 
@@ -42,7 +42,53 @@ const About = () => {
     }, []);
 
 
+    const loadScript = (src) =>{
+        return new Promise((resolve)=>{
+            const script = document.createElement('script')
+            script.src = src
 
+            script.onload = () =>{
+                resolve(true)
+            }
+
+            script.onerror = () =>{
+                resolve(false)
+            }
+
+            document.body.appendChild(script)
+        })
+    }
+
+    const Razorpayaay = async (paise) =>{
+        const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
+
+        if(!res) {
+            alert('You are offline :)')
+            return
+        }
+
+        const options = {
+            key: "rzp_test_C6HppAhCd79ivF",
+            currency: "INR",
+            image : 'https://i.postimg.cc/nzdjYy2Q/Whats-App-Image-2023-06-07-at-17-38-06.jpg',
+            amount: paise*100,
+            name: "ExpressPay",
+            description: "Thanks for Shoppping",
+            handler: function(response){
+                alert(response.razorpay_payment_id)
+                alert("Payment Successfully ")
+            },
+            prefill:{
+                name:"Name"
+            }
+
+            // if(response.razorpay_payment_id){
+
+            // }
+        };
+        const paymentObject = new window.Razorpay(options)
+        paymentObject.open()
+    }
 
     return (
         <>
@@ -191,7 +237,7 @@ const About = () => {
 
                 </form>
                 <div className="buttons">
-                    
+                    <button onClick={()=>Razorpayaay(2321)}>Pay Now</button>
                 </div>
                
            </div>
@@ -201,4 +247,3 @@ const About = () => {
 }
 
 export default About
-
