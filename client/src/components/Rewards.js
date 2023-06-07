@@ -17,13 +17,13 @@ const Rewards = () => {
  const navigatePage=(id)=>{
   switch (id) {
     case 1:
-      navigate ('/referral')
+      navigate ('/cashback')
     case 2:
-      navigate ('/referral')
+      navigate ('/points')
     case 3:
-      navigate ('/contact')
+      navigate ('/referral')
     case  4:
-      navigate ('/about')
+      navigate ('/offer')
     default:
       return null
   }

@@ -11,6 +11,9 @@ import Signup from "./components/Signup"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Errorpage from './components/Errorpage'
 import Logout from "./components/Logout";
+import Points from "./components/Points";
+import Cashback from "./components/Cashback";
+import Offer from "./components/Offer";
 import { initialState,reducer } from '../src/reducer/UseReducer'
 import Referral from './components/Referral'
 
@@ -29,6 +32,9 @@ const App = () => {
     <Route exact path='/' element={<Home/>}></Route>
       <Route exact path='/about' element={<About/>}></Route>
       <Route exact path='/rewards' element={<Rewards/>}></Route>
+      <Route exact path='/offer' element={<Offer/>}></Route>
+      <Route exact path='/cashback' element={<Cashback/>}></Route>
+      <Route exact path='/points' element={<Points/>}></Route>
       <Route exact path='/referral' element={<Referral/>}></Route>
       <Route exact path='/login' element={<Login/>}></Route>
       <Route exact path='/contact' element={<Contact/>}></Route>
