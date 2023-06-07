@@ -1,6 +1,5 @@
 import React, {useEffect, useState}  from 'react'
 import aboutpic from "../images/about1.png";
-import logo from "../images/expressPayLogo.jpg";
 // import { useHistory } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 
