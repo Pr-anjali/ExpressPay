@@ -1,5 +1,5 @@
 import React, {useEffect, useState}  from 'react'
-import aboutpic from "../images/about.png";
+import aboutpic from "../images/about1.png";
 
 // import { useHistory } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
