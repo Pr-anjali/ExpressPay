@@ -1,6 +1,6 @@
 import React,{useState}from 'react'
 import { NavLink,  useNavigate } from 'react-router-dom';
-import signpic from "../images/sign.png";
+import signpic from "../images/registration.jpg";
 
 const Signup = () => {
   const navigate = useNavigate();
