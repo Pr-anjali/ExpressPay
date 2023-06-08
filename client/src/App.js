@@ -16,7 +16,7 @@ import Cashback from "./components/Cashback";
 import Offer from "./components/Offer";
 import { initialState,reducer } from '../src/reducer/UseReducer'
 import Referral from './components/Referral'
-
+import Payments from './components/Payment';
 // 1: contextAPI
 export const UserContext = createContext();
 
@@ -41,6 +41,8 @@ const App = () => {
       <Route exact path='/signup' element={<Signup/>}></Route>
       <Route exact path='/logout' element={<Logout/>}></Route>
       <Route exact path='*' element={<Errorpage/>}></Route>
+      <Route exact path='/payment' element={<Payments/>}></Route>
+
       </Routes>
     </BrowserRouter>
     </UserContext.Provider>

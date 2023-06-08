@@ -1223,3 +1223,7 @@ footer {
   display: flex;
   justify-content: space-between;
 }
+.PaymentPage{
+  width:20vw;
+  height:30vh;
+}

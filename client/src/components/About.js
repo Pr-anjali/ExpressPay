@@ -2,7 +2,7 @@ import React, {useEffect, useState}  from 'react'
 import aboutpic from "../images/about1.png";
 // import { useHistory } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
-
+import PaymentsPage from './Payment.js';
 const About = () => {
 
   const navigate = useNavigate();
@@ -238,7 +238,7 @@ const About = () => {
                 <div className="buttons">
                     <button onClick={()=>Razorpayaay(2321)}>Pay Now</button>
                 </div>
-               
+                <PaymentsPage /> 
            </div>
            
         </>
