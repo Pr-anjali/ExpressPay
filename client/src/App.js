@@ -8,6 +8,8 @@ import Rewards from "./components/Rewards"
 import Contact from "./components/Contact"
 import Login from "./components/Login"
 import Signup from "./components/Signup"
+import NewsItems from './components/NewsItems'
+import News from './components/News'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Errorpage from './components/Errorpage'
 import Logout from "./components/Logout";
@@ -32,6 +34,8 @@ const App = () => {
     <Route exact path='/' element={<Home/>}></Route>
       <Route exact path='/about' element={<About/>}></Route>
       <Route exact path='/rewards' element={<Rewards/>}></Route>
+      <Route exact path='/news' element={<News/>}></Route>
+      <Route exact path='/newsitems' element={<NewsItems/>}></Route>
       <Route exact path='/offer' element={<Offer/>}></Route>
       <Route exact path='/cashback' element={<Cashback/>}></Route>
       <Route exact path='/points' element={<Points/>}></Route>
