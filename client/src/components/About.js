@@ -32,7 +32,7 @@ const About = () => {
         } 
         catch (err) {
             console.log(err);
-            //navigate('/login');
+            navigate('/login');
         }
     }
 
@@ -81,9 +81,6 @@ const About = () => {
                 name:"Name"
             }
 
-            // if(response.razorpay_payment_id){
-
-            // }
         };
         const paymentObject = new window.Razorpay(options)
         paymentObject.open()
