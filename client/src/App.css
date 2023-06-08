@@ -1143,13 +1143,6 @@ Link {
   transition: opacity 500ms;
 }
 
-/* Offer page */
-/* CSS styles for the UI */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
 
 header {
   background-color: #f0f0f0;
