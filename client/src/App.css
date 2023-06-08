@@ -12,8 +12,8 @@ display-flex,
 .signin-content,
 .social-login,
 .socials {
-  display: flex;
-  display: -webkit-flex;
+   display: flex;
+   display: -webkit-flex;
 }
 
 /* @extend list-type-ulli; */
