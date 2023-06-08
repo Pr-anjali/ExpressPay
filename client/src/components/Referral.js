@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logo from "../images/expressPayLogo.jpg";
+import ref from '../images/ref.jpg';
 import emailIcon from '../images/email-icon.jpg';
 import whatsappIcon from '../images/whatsapp-icon.jpg';
 import facebookIcon from '../images/facebook-icon.jpg';
@@ -39,15 +39,14 @@ const Referral = () => {
   return (
     <div>
       <h1>Referral Page</h1>
-      <img src={logo} alt="Referral" />
-      <p>Share your referral code with friends:</p>
-      <input
-        type="text"
-        value={referralCode}
-        onChange={(e) => setReferralCode(e.target.value)}
-      />
-      <button onClick={handleCopy}>{isCopied ? 'Copied!' : 'Copy'}</button>
-      <p>Or share via:</p>
+      <img src={ref} alt="Referral" width="500" height="600" align ="right"/>
+      <p>Share this link:</p>
+      <a href={`https://example.com/referral/${referralCode}`}>
+        {`https://example.com/referral/${referralCode}`}
+      </a>
+      <div>
+        <br></br>
+        <p>Or share via:</p>
       <div className="share-buttons">
         <button onClick={handleEmailShare}>
           <img src={emailIcon} alt="Email" width="20" height="20" />
@@ -62,10 +61,16 @@ const Referral = () => {
           <img src={telegramIcon} alt="Telegram" width="20" height="20" />
         </button>
       </div>
-      <p>Or share this link:</p>
-      <a href={`https://example.com/referral/${referralCode}`}>
-        {`https://example.com/referral/${referralCode}`}
-      </a>
+      <br></br>
+      <p>Share your referral code with friends:</p>
+      <input
+        type="text"
+        value={referralCode}
+        onChange={(e) => setReferralCode(e.target.value)}
+      />
+      <button onClick={handleCopy}>{isCopied ? 'Copied!' : 'Copy'}</button>
+      </div>
+      
     </div>
   );
 };
