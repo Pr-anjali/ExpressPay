@@ -38,37 +38,40 @@ const Referral = () => {
 
   return (
     <div>
-      <h1>Referral Page</h1>
+      <h1 class="referalhead">Referral Page</h1>
       <img src={ref} alt="Referral" width="500" height="600" align ="right"/>
-      <p>Share this link:</p>
-      <a href={`https://example.com/referral/${referralCode}`}>
+      <p class="sharep">Share this link:</p>
+      <a href={`https://example.com/referral/${referralCode}`} class="clicklink">
         {`https://example.com/referral/${referralCode}`}
       </a>
       <div>
         <br></br>
-        <p>Or share via:</p>
-      <div className="share-buttons">
-        <button onClick={handleEmailShare}>
-          <img src={emailIcon} alt="Email" width="20" height="20" />
+        <p class="sharep2">Or share via:</p>
+      <div className="share-buttons" class="sharebuttons">
+        <button onClick={handleEmailShare} class="shareoption">
+          <img src={emailIcon} alt="Email" width="40" height="40" />
         </button>
-        <button onClick={handleWhatsAppShare}>
-          <img src={whatsappIcon} alt="WhatsApp" width="20" height="20" />
+        <button onClick={handleWhatsAppShare} class="shareoption">
+          <img src={whatsappIcon} alt="WhatsApp" width="40" height="40" />
         </button>
-        <button onClick={handleFacebookShare}>
-          <img src={facebookIcon} alt="Facebook" width="20" height="20" />
+        <button onClick={handleFacebookShare} class="shareoption">
+          <img src={facebookIcon} alt="Facebook" width="40" height="40" />
         </button>
-        <button onClick={handleTelegramShare}>
-          <img src={telegramIcon} alt="Telegram" width="20" height="20" />
+        <button onClick={handleTelegramShare} class="shareoption">
+          <img src={telegramIcon} alt="Telegram" width="40" height="40" />
         </button>
       </div>
       <br></br>
-      <p>Share your referral code with friends:</p>
+      <p class="sharep3">Share your referral code with friends:</p>
       <input
         type="text"
         value={referralCode}
         onChange={(e) => setReferralCode(e.target.value)}
       />
-      <button onClick={handleCopy}>{isCopied ? 'Copied!' : 'Copy'}</button>
+      <button onClick={handleCopy} class="copy">{isCopied ? 'Copied!' : 'Copy'}</button>
+      <a href={`https://example.com/referral/${referralCode}`} class="copylink">
+        {`https://example.com/referral/${referralCode}`}
+      </a>
       </div>
       
     </div>
@@ -76,3 +79,41 @@ const Referral = () => {
 };
 
 export default Referral;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
