@@ -1249,5 +1249,88 @@ footer {
   }
 }
 
+.PaymentPage{
+  height:30vh;
+  width:20vw
+}
 
 
+.referalhead
+ {
+  /* align-self: center;  */
+  margin-left:200px;
+  font-weight: 600;
+  border: none;
+  color: #FC5185;
+}
+
+.sharep{
+  margin-top:30px;
+  margin-left:250px;
+  font-size: 25px;
+}
+.sharep2{
+  margin-top:5px;
+  margin-left:255px;
+  font-size: 25px;
+}
+
+.copylink{
+  margin-left:25px;
+}
+
+.clicklink{
+  margin-left:210px;
+}
+
+.sharebuttons{
+  display:flex;
+  justify-content:centre;
+
+  margin-left:140px
+  
+
+}
+
+.shareoption{
+  margin:20px;
+  padding:10px;
+  border-style: groove;
+  border-color: gray;
+  border-radius: 5px;
+  /* border-color: #4CAF50; */
+}
+
+.sharep3
+{
+  margin-top:5px;
+  margin-left:150px;
+  font-size: 25px;
+}
+
+.copy{
+  
+} 
+
+
+.headingcashback{
+  margin-left:300px;
+  font-weight: 600;
+  border: none;
+  color: #FC5185;
+}
+
+
+
+.search-filter-design{
+  margin-left:300px;
+  margin-right:300px;
+  margin-top:50px;
+  border:1px solid black;
+  ;
+}
+
+.searchbox{
+  display: flex;
+  flex-direction: row;
+}
