@@ -1334,3 +1334,30 @@ footer {
   display: flex;
   flex-direction: row;
 }
+
+.option{
+  padding:5px;
+  border:10px solid black;
+}
+
+.imagecash{
+  
+}
+
+.searchbox2{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; 
+  /* Add this property to increase spacing between items */
+  margin-right:60px;
+  
+}
+
+.submitbutton{
+  background:#FC5185;
+  color: white;
+  padding: 10px;
+  border: 1px sloid white;
+  border-radius: 5px;
+  
+}
