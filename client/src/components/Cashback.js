@@ -111,15 +111,23 @@ const Cashback = () => {
 
   return (
     <div className="cashback-page">
-      <h1>Welcome to Cashback Page</h1>
+      <h1 class="headingcashback">Welcome to Cashback Page</h1>
 
-      <div className="search-filter">
+      <div className="search-filter" class="search-filter-design">
+        <div  class="searchbox">
+        
+        
         <input
           type="text"
           placeholder="Search..."
           value={searchTerm}
           onChange={handleSearchTermChange}
+         
         />
+        <button border="1px solid black"><img src='https://www.downloadclipart.net/large/magnifying-glass-png-no-background.png' alt="search" width="40px" height="40px" border="1px solid black"/></button>
+        </div>
+      
+       
 
         <select value={sortOption} onChange={handleSortOptionChange}>
           <option value="">Sort By</option>

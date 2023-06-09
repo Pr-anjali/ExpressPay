@@ -1312,3 +1312,25 @@ footer {
   
 } 
 
+
+.headingcashback{
+  margin-left:300px;
+  font-weight: 600;
+  border: none;
+  color: #FC5185;
+}
+
+
+
+.search-filter-design{
+  margin-left:300px;
+  margin-right:300px;
+  margin-top:50px;
+  border:1px solid black;
+  ;
+}
+
+.searchbox{
+  display: flex;
+  flex-direction: row;
+}
