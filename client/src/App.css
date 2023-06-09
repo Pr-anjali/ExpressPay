@@ -1254,3 +1254,61 @@ footer {
   width:20vw
 }
 
+
+.referalhead
+ {
+  /* align-self: center;  */
+  margin-left:200px;
+  font-weight: 600;
+  border: none;
+  color: #FC5185;
+}
+
+.sharep{
+  margin-top:30px;
+  margin-left:250px;
+  font-size: 25px;
+}
+.sharep2{
+  margin-top:5px;
+  margin-left:255px;
+  font-size: 25px;
+}
+
+.copylink{
+  margin-left:25px;
+}
+
+.clicklink{
+  margin-left:210px;
+}
+
+.sharebuttons{
+  display:flex;
+  justify-content:centre;
+
+  margin-left:140px
+  
+
+}
+
+.shareoption{
+  margin:20px;
+  padding:10px;
+  border-style: groove;
+  border-color: gray;
+  border-radius: 5px;
+  /* border-color: #4CAF50; */
+}
+
+.sharep3
+{
+  margin-top:5px;
+  margin-left:150px;
+  font-size: 25px;
+}
+
+.copy{
+  
+} 
+
