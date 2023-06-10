@@ -57,16 +57,16 @@ export class News extends Component{
      {this.state.loading && <Spinner/>}
       <div className='row'>
       {!this.state.loading  && this.state.articles.map((element)=>{ return <div className='col-md-4' key ={element.url}>
-      <NewsItems title={element.title?element.title.slice(0,45):""} description={element.description?element.description.slice(0,88):""} imageUrl={element.urlToImage} newsUrl={element.url}/>
+      <NewsItems title={element.title?element.title.slice(0,18):""} description={element.description?element.description.slice(0,50):""} imageUrl={element.urlToImage} newsUrl={element.url}/>
       </div>
       })}
       </div>
       <div className='container d-flex justify-content-between'>
       <div className="contact_form_button">
-    <button disabled={this.state.page<=1} type="submit" className="button contact_submit_button" onClick={this.handlePrevClick} >&larr; Previous</button>
+    <button disabled={this.state.page<=1} type="submit" className="prev_news_button" onClick={this.handlePrevClick} >&larr; Previous</button>
        </div>
        <div className="contact_form_button">
-    <button disabled={this.state.page+1>Math.ceil(this.state.totalResults/12)} type="submit" className="button contact_submit_button" onClick={this.handleNextClick} >Next &rarr;</button>
+    <button disabled={this.state.page+1>Math.ceil(this.state.totalResults/12)} type="submit" className=" next_news_button" onClick={this.handleNextClick} >Next &rarr;</button>
        </div>
 
       </div>
