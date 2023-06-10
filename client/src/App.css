@@ -972,7 +972,7 @@ label.valid:after {
   border: none;
   outline: none;
   cursor: pointer;
-  margin-top: 24px;
+  margin-top: 32px;
   -webkit-transition: all 200ms ease;
   -moz-transition: all 200ms ease;
   -ms-transition: all 200ms ease;
@@ -1000,7 +1000,7 @@ label.valid:after {
   border: none;
   outline: none;
   cursor: pointer;
-  margin-top: 24px;
+  margin-top: 32px;
   -webkit-transition: all 200ms ease;
   -moz-transition: all 200ms ease;
   -ms-transition: all 200ms ease;
