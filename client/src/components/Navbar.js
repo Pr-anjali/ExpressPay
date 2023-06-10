@@ -18,7 +18,7 @@ const Navbar = () => {
           <Link className="nav-link active" aria-current="page" to="/">Home</Link>
         </li>
         <li className="nav-item" nav class="navbar navbar-light bg-light">
-          <Link className="nav-link" to="/about">About</Link>
+          <Link className="nav-link" to="/about">Profile</Link>
         </li>
         <li className="nav-item" nav class="navbar navbar-light bg-light">
           <Link className="nav-link" to="/contact">Contact</Link>
@@ -43,7 +43,7 @@ const Navbar = () => {
           <Link className="nav-link active" aria-current="page" to="/">Home</Link>
         </li>
         <li className="nav-item" nav class="navbar navbar-light bg-light">
-          <Link className="nav-link" to="/about">About</Link>
+          <Link className="nav-link" to="/about">Profile</Link>
         </li>
         <li className="nav-item" nav class="navbar navbar-light bg-light">
           <Link className="nav-link" to="/news">News</Link>

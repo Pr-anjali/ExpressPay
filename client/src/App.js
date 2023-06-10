@@ -5,11 +5,13 @@ import Navbar from "./components/Navbar"
 import Home from "./components/Home"
 import About from "./components/About"
 import Rewards from "./components/Rewards"
+import Converter from "./components/Converter"
 import Contact from "./components/Contact"
 import Login from "./components/Login"
 import Signup from "./components/Signup"
 import NewsItems from './components/NewsItems'
 import News from './components/News'
+import Stock from './components/Stock'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Errorpage from './components/Errorpage'
 import Logout from "./components/Logout";
@@ -35,7 +37,9 @@ const App = () => {
     <Route exact path='/' element={<Home/>}></Route>
       <Route exact path='/about' element={<About/>}></Route>
       <Route exact path='/rewards' element={<Rewards/>}></Route>
+      <Route exact path='/converter' element={<Converter/>}></Route>
       <Route exact path='/news' element={<News/>}></Route>
+      <Route exact path='/stock' element={<Stock/>}></Route>
       <Route exact path='/newsitems' element={<NewsItems/>}></Route>
       <Route exact path='/offer' element={<Offer/>}></Route>
       <Route exact path='/cashback' element={<Cashback/>}></Route>
