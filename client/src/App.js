@@ -3,6 +3,7 @@ import "./App.css"
 import 'bootstrap/dist/css/bootstrap.css'
 import Navbar from "./components/Navbar"
 import Home from "./components/Home"
+import Chatbot from "./components/Chatbot"
 import About from "./components/About"
 import Rewards from "./components/Rewards"
 import Converter from "./components/Converter"
@@ -52,11 +53,14 @@ const App = () => {
       <Route exact path='*' element={<Errorpage/>}></Route>
       <Route exact path='/payment' element={<Payments/>}></Route>
       <Route exact path='/otp-auth' element={<Otpauth/>}></Route>
+      
+      
      
       
       </Routes>
     </BrowserRouter>
     </UserContext.Provider>
+    <Chatbot/>
     </>
   )
 }

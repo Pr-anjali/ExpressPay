@@ -72,7 +72,7 @@ const About = () => {
             image : 'https://i.postimg.cc/nzdjYy2Q/Whats-App-Image-2023-06-07-at-17-38-06.jpg',
             amount: paise*100,
             name: "ExpressPay",
-            description: "Thanks for Shoppping",
+            description: "Thanks for payment through ExpressPay",
             handler: function(response){
                 alert(response.razorpay_payment_id)
                 alert("Payment Successfully ")
