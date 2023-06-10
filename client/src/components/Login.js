@@ -27,7 +27,7 @@ const Login = () => {
         window.alert("Invalid Credentials");
       } else{
         dispatch({type:"USER",payload:true})
-        window.alert("Login Successful")
+       
         navigate('/')
       }
   }

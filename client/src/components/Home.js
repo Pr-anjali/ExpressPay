@@ -1,9 +1,19 @@
 import React, {useState, useEffect} from 'react'
+import {useAuthState} from 'react-firebase-hooks/auth';
+import {auth} from '../firebaseConfig';
+import { useNavigate } from 'react-router-dom';
+
 
 const Home = () => {
+    
     const [userName, setUserName] = useState('');
     const [show, setShow] = useState(false);
 
+   // const [user, loading, error] = useAuthState(auth);
+  
+ // console.log(error);
+  const navigate = useNavigate();
+  
     const userHomePage = async () => {
         try {
             const res = await fetch('/getdata', {
