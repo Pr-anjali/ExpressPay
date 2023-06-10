@@ -785,7 +785,7 @@ label.valid:after {
 
 .contact_info {
   width: 100%;
-  padding-top: 70px;
+  padding-top: 50px;
 }
 
 .contact_info_item {
@@ -825,17 +825,11 @@ label.valid:after {
   color: rgba(0, 0, 0, 0.5);
 }
 
-.contact_form {
-  padding-top: 85px;
-}
-
-.contact_form_container {
-}
-
 .contact_form_title {
   font-size: 30px;
   font-weight: 500;
   margin-bottom: 37px;
+  text-align: center;
 }
 
 .contact_form_inputs {
@@ -1418,6 +1412,17 @@ footer {
   /* Add this property to increase spacing between items */
   margin-right:60px;
   
+}
+
+.contact_submit_button{
+  background:#FC5185;
+  color: white;
+  border: none;
+  padding: 10px;
+  position: relative;
+  left: 45%;
+  border-radius: 5px;
+  width: 121px;
 }
 
 .submitbutton{
