@@ -63,10 +63,10 @@ export class News extends Component{
       </div>
       <div className='container d-flex justify-content-between'>
       <div className="contact_form_button">
-    <button disabled={this.state.page<=1} type="submit" className="button contact_submit_button" onClick={this.handlePrevClick} >&larr; Previous</button>
+    <button disabled={this.state.page<=1} type="submit" className="prev_news_button" onClick={this.handlePrevClick} >&larr; Previous</button>
        </div>
        <div className="contact_form_button">
-    <button disabled={this.state.page+1>Math.ceil(this.state.totalResults/12)} type="submit" className="button contact_submit_button" onClick={this.handleNextClick} >Next &rarr;</button>
+    <button disabled={this.state.page+1>Math.ceil(this.state.totalResults/12)} type="submit" className=" next_news_button" onClick={this.handleNextClick} >Next &rarr;</button>
        </div>
 
       </div>
