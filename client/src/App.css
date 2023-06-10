@@ -935,7 +935,12 @@ label.valid:after {
   display: inline-block;
   background: #FC5185;
   border-radius: 5px;
-  height: 48px;
+  padding-top: 4px;
+  position: absolute;
+  top: 261px;
+  height: 43px;
+  width: 187px;
+  left:54px;
   -webkit-transition: all 200ms ease;
   -moz-transition: all 200ms ease;
   -ms-transition: all 200ms ease;
@@ -951,6 +956,7 @@ label.valid:after {
   color: #ffffff;
   padding-left: 35px;
   padding-right: 35px;
+  display: inline;
 }
 
 .button:hover {
