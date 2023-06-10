@@ -61,7 +61,7 @@ export class News extends Component{
       </div>
       })}
       </div>
-      <div className='container d-flex justify-content-between'>
+      <div className='Buttoncontainer'>
       <div className="contact_form_button">
     <button disabled={this.state.page<=1} type="submit" className="prev_news_button" onClick={this.handlePrevClick} >&larr; Previous</button>
        </div>

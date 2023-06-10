@@ -797,6 +797,11 @@ label.valid:after {
   padding-right: 15px;
 }
 
+.Buttoncontainer{
+  margin-top: 21px;
+  display: flex;
+}
+
 .contact_info_image {
   width: 35px;
   height: 35px;
