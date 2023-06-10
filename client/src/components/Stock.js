@@ -88,6 +88,9 @@ const Stock = () => {
         <option value="RELIANCE.BSE">Reliance BSE</option>
         <option value="IBM">IBM United States</option>
         <option value="TSCO.LON">Tesco UK-LSE</option>
+        <option value="MSFT">Microsoft</option>
+        <option value="AMZN">Amazon</option>
+        <option value="FB">Facebook</option>
         <option value="SHOP.TRT">Shopify Canada-TSE</option>
         {/* Add more stock symbols as needed */}
       </select>
