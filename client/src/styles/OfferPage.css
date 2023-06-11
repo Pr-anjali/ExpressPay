@@ -54,11 +54,8 @@ body {
   
   footer {
     background-color: #FC5185;
-    height: 2.5rem;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
-    position: absolute;
-    bottom: 5;
-    width: 100%;
   }
   
