@@ -3,6 +3,24 @@
 * {
   font-family: "Poppins", sans-serif;
 }
+html{
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body{
+  position: relative;
+  min-height: 100%;
+  margin:0;
+  padding-bottom: 6.74rem;
+  box-sizing: inherit;
+}
+
+main{
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 32px;
+}
 
 /* @extend display-flex; */
 display-flex,
@@ -202,7 +220,7 @@ body {
 }
 
 .signup-content {
-  padding: 75px 0;
+  padding: 18px 0;
 }
 
 .signup-form,
@@ -1278,10 +1296,10 @@ header {
 }
 
 footer {
-  background-color: #f0f0f0;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
+  /* background-color: #f0f0f0; */
+  /* padding: 20px; */
+  /* display: flex; */
+  /* justify-content: space-between; */
 }
 .offer-card {
   width: 700px;
