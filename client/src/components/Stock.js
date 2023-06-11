@@ -4,8 +4,8 @@ import Plot from 'react-plotly.js';
 const Stock = () => {
   const [stockChartXValues, setStockChartXValues] = useState([]);
   const [stockChartYValues, setStockChartYValues] = useState([]);
-  const [selectedStockSymbol, setSelectedStockSymbol] = useState('RELIANCE.BSE'); // Updated default value
-  const [selectedStockName, setSelectedStockName] = useState('Reliance BSE'); // Added state variable
+  const [selectedStockSymbol, setSelectedStockSymbol] = useState('IBM'); // Updated default value
+  const [selectedStockName, setSelectedStockName] = useState('IBM United States'); // Added state variable
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchStock = async () => {
