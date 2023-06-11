@@ -1,6 +1,7 @@
-import React,{useState}from 'react'
+import React,{useState, useRef }from 'react'
 import { NavLink,  useNavigate } from 'react-router-dom';
 import signpic from "../images/registration.jpg";
+import emailjs from '@emailjs/browser';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -34,9 +35,23 @@ const Signup = () => {
           else{
             window.alert("Registration successful")
             console.log("Successful Registration")
+
             navigate('/login')
           }
   }
+
+  const form = useRef();
+  const sendEmail = async(e) => {
+
+    e.preventDefault();
+
+    emailjs.sendForm('service_uj23xts', 'template_onpipfw', form.current, 'BR__VjbRbuwhJvRFU')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
 
   return (
     <>
@@ -45,7 +60,7 @@ const Signup = () => {
             <div className='signup-content'>
                 <div className='signup-form'>
                   <h2 className='form-title'>Sign Up</h2>
-                  <form method='POST' className='register-form' id='register-form'>
+                  <form method='POST' className='register-form' id='register-form'  ref={form} >
 
                      <div className='form-group'>
                       <label htmlFor="name">
@@ -108,7 +123,7 @@ const Signup = () => {
                      </div>   
 
                      <div className="form-group form-button">
-                         <input type="submit" name="signup" id="signup" className='form-submit' value="register" onClick={PostData}/> 
+                         <input type="submit" name="signup" id="signup" className='form-submit' value="register" onClick={(event)=>[PostData(event), sendEmail(event) ]}/> 
                      </div>
 
                   </form>
