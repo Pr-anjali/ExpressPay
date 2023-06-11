@@ -1297,7 +1297,7 @@ footer {
 .cashback-offers-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  /* grid-gap: 16px; */
+  grid-gap: 16px;
   justify-items: center;
   row-gap: 125px;
   padding: 16px;
@@ -1381,7 +1381,7 @@ footer {
 
 
 .headingcashback{
-  text-align: center;
+  margin-left:300px;
   font-weight: 600;
   border: none;
   color: #FC5185;
@@ -1423,10 +1423,7 @@ footer {
 .submitbutton{
   background:#FC5185;
   color: white;
-  border: none;
   padding: 10px;
-  position: relative;
-  left: 449px;
   border: 1px sloid white;
   border-radius: 5px;
   
