@@ -35,6 +35,14 @@ const Navbar = () => {
         <li className="nav-item" nav class="navbar navbar-light bg-light">
           <Link className="nav-link" to="/stock">Stocks</Link>
         </li>
+
+        <li className="nav-item" nav class="navbar navbar-light bg-light">
+          <a href='http://localhost:2000/'>Community</a>
+        </li>
+
+        {/* <li className="nav-item" nav class="navbar navbar-light bg-light">
+          <Link className="nav-link" to="">Community</Link>
+        </li> */}
         </div>
           </>
         )
@@ -63,7 +71,17 @@ const Navbar = () => {
         <li className="nav-item" nav class="navbar navbar-light bg-light">
           <Link className="nav-link" to="/signup">Registration</Link>
         </li>
+        {/* <li className="nav-item" nav class="navbar navbar-light bg-light">
+          <Link className="nav-link" to="/community">Community</Link>
+        </li> */}
 
+      
+        {/* <li className="nav-item" nav class="navbar navbar-light bg-light " ><a style="text-decoration: none" href="http://localhost:2000/"  className="nav-item" nav class="navbar navbar-light bg-light"
+      >Community</a></li> */}
+       <li className="nav-item" nav class="navbar navbar-light bg-light">
+          <a href='http://localhost:2000/'>Community</a>
+        </li>
+       
       </>
     )
    }
