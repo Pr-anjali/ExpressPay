@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react'
 const Contact = () => {
 
     const [userData, setUserData] = useState({name:"", email:"", phone:"", message:""});
-
+   
     const userContact = async () => {
         try {
             const res = await fetch('/getdata', {
@@ -15,6 +15,7 @@ const Contact = () => {
 
             const data = await res.json();
             console.log(data);
+            
             setUserData({...userData, name:data.name, email:data.email, phone:data.phone });
 
             if (!res.status === 200) {
@@ -81,14 +82,14 @@ const Contact = () => {
                          <img src="https://img.icons8.com/office/24/000000/iphone.png" alt="" /></div>
                          <div className="contact_info_content">
                              <div className="contact_info_title">Phone</div>
-                             <div className="contact_info_text">+91 1111 543 2198</div>
+                             <div className="contact_info_text">+91 123 456</div>
                          </div>
                      </div> 
                      <div className="contact_info_item d-flex flex-row align-items-center justify-content-start">
                          <div className="contact_info_image"><img src="https://img.icons8.com/ultraviolet/24/000000/filled-message.png" alt="" /></div>
                          <div className="contact_info_content">
                              <div className="contact_info_title">Email</div>
-                             <div className="contact_info_text">contact@rvdk.com</div>
+                             <div className="contact_info_text">expressPay@gmail.com</div>
                          </div>
                      </div> 
                      <div className="contact_info_item d-flex flex-row align-items-center justify-content-start">

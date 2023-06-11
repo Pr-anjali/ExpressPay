@@ -67,7 +67,7 @@ const About = () => {
         }
 
         const options = {
-            key: "rzp_test_C6HppAhCd79ivF",
+            key: "rzp_test_uwD7bSyjP8p6BE",
             currency: "INR",
             image : 'https://i.postimg.cc/nzdjYy2Q/Whats-App-Image-2023-06-07-at-17-38-06.jpg',
             amount: paise*100,
