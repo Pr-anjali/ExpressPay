@@ -150,7 +150,7 @@ const Contact = () => {
                                     </div>
 
                                     <div className="contact_form_button">
-                                        <button type="submit" className="button contact_submit_button"
+                                        <button type="submit" className="contact_button"
                                         onClick={contactForm}>Send Message</button>
                                     </div>
                                 </form>

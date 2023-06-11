@@ -844,7 +844,7 @@ label.valid:after {
 }
 
 .contact_form {
-  padding-top: 85px;
+  padding-top: 18px;
 }
 
 .contact_form_container {
@@ -969,6 +969,29 @@ label.valid:after {
   -ms-transition: all 200ms ease;
   -o-transition: all 200ms ease;
   transition: all 200ms ease;
+}
+
+.contact_button{
+  display: inline-block;
+  background: #FC5185;
+  border-radius: 5px;
+  padding-top: 9px;
+  position: absolute;
+  top: 261px;
+  height: 43px;
+  width: 187px;
+  left: 54px;
+  color: white;
+  border: none;
+  position: inherit;
+  bottom: 5px;
+  padding-bottom: 18px;
+  transition: all 200ms ease;
+  margin-top: 39px;
+}
+
+.contact_button:hover {
+  opacity: 0.8;
 }
 
 .next_news_button {
