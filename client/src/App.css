@@ -785,7 +785,7 @@ label.valid:after {
 
 .contact_info {
   width: 100%;
-  padding-top: 70px;
+  padding-top: 50px;
 }
 
 .contact_info_item {
@@ -795,6 +795,11 @@ label.valid:after {
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
   padding-left: 32px;
   padding-right: 15px;
+}
+
+.Buttoncontainer{
+  margin-top: 21px;
+  display: flex;
 }
 
 .contact_info_image {
@@ -820,17 +825,11 @@ label.valid:after {
   color: rgba(0, 0, 0, 0.5);
 }
 
-.contact_form {
-  padding-top: 85px;
-}
-
-.contact_form_container {
-}
-
 .contact_form_title {
   font-size: 30px;
   font-weight: 500;
   margin-bottom: 37px;
+  text-align: center;
 }
 
 .contact_form_inputs {
@@ -955,10 +954,9 @@ label.valid:after {
   padding-top: 3px;
   position: absolute;
   /* top: 1551px; */
-  position: relative;
-  display: inline;
+  /* height: px; */
   width: 187px;
-  left:754px;
+  left:954px;
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 35px;
@@ -968,6 +966,7 @@ label.valid:after {
   border: none;
   outline: none;
   cursor: pointer;
+  margin-top: 32px;
   -webkit-transition: all 200ms ease;
   -moz-transition: all 200ms ease;
   -ms-transition: all 200ms ease;
@@ -995,7 +994,7 @@ label.valid:after {
   border: none;
   outline: none;
   cursor: pointer;
-  margin-top: 4px;
+  margin-top: 32px;
   -webkit-transition: all 200ms ease;
   -moz-transition: all 200ms ease;
   -ms-transition: all 200ms ease;
@@ -1292,7 +1291,7 @@ footer {
 .cashback-offers-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 16px;
+  /* grid-gap: 16px; */
   justify-items: center;
   row-gap: 125px;
   padding: 16px;
@@ -1376,7 +1375,7 @@ footer {
 
 
 .headingcashback{
-  margin-left:300px;
+  text-align: center;
   font-weight: 600;
   border: none;
   color: #FC5185;
@@ -1415,11 +1414,25 @@ footer {
   
 }
 
+.contact_submit_button{
+  background:#FC5185;
+  color: white;
+  border: none;
+  padding: 10px;
+  position: relative;
+  left: 45%;
+  border-radius: 5px;
+  width: 121px;
+}
+
 .submitbutton{
   background:#FC5185;
   color: white;
+  border: none;
   padding: 10px;
-  border: 1px solid white;
+  position: relative;
+  left: 449px;
+  border: 1px sloid white;
   border-radius: 5px;
   
 }
