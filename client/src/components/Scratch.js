@@ -8,6 +8,9 @@ const App = () => {
       <div className='card-container'>
       <ScratchCard prize="10 points!!" />
       <ScratchCard prize="15 points!!" />
+      <ScratchCard prize="300 INR" />
+      <ScratchCard prize="1000 INR" />
+
       </div>
     </div>
   );
