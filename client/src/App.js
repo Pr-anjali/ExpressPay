@@ -26,6 +26,7 @@ import Erupi from './components/Erupi'
 import Otpauth from './components/otp-auth';
 import ScratchCard from './components/Scratch';
 import GiftCard from './components/GiftCards';
+import Transactionhistory from './components/Transactionhistory';
 // 1: contextAPI
 export const UserContext = createContext();
 
@@ -59,6 +60,8 @@ const App = () => {
       <Route exact path='/otp-auth' element={<Otpauth/>}></Route>
       <Route exact path='/points/Scratch' element={<ScratchCard/>}></Route>
       <Route exact path='/points/GiftCards' element={<GiftCard/>}></Route>
+      <Route exact path='/transactionhistory' element={<Transactionhistory/>}></Route>
+
       
       
      
