@@ -1,7 +1,8 @@
 import React, {useEffect, useState}  from 'react'
 import aboutpic from "../images/about1.png";
 // import { useHistory } from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import PaymentsPage from './Payment.js';
 const About = () => {
 
@@ -56,6 +57,10 @@ const About = () => {
 
             document.body.appendChild(script)
         })
+    }
+
+    const eRupi = async() => {
+        return navigate ('/erupi')
     }
 
     const Razorpayaay = async (paise) =>{
@@ -233,7 +238,11 @@ const About = () => {
 
                 </form>
                 <div className="buttons">
-                    <button onClick={()=>Razorpayaay(2321)}>Pay Now</button>
+                    <button onClick={()=>Razorpayaay(2321)}>Razorpay Transaction</button>
+                </div>
+                <br></br>
+                <div className="buttons">
+                    <button onClick={()=>eRupi()}>e-RUPI Transaction</button>
                 </div>
                 <PaymentsPage /> 
            </div>

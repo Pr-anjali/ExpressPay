@@ -19,7 +19,8 @@
       });
       function sendMessage(){
          var msg = document.getElementById('message').value;
-         if(msg){
+         if(msg)
+         {
             socket.emit('msg', {message: msg, user: user});
          }
       }

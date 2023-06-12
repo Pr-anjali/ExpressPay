@@ -1,0 +1,51 @@
+.transaction-form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 10px;
+  }
+  
+  .transaction-form-container h2 {
+    margin-top: 0;
+    text-align: center;
+  }
+  
+  .transaction-form-container form {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .transaction-form-container label {
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .transaction-form-container input[type="number"],
+  .transaction-form-container input[type="text"],
+  .transaction-form-container input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .transaction-form-container .form-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .transaction-form-container .form-row label {
+    flex: 0 0 200px;
+    margin-right: 10px;
+    text-align: right;
+  }
+  
+  .transaction-form-container .form-row input[type="number"] {
+    text-align: center;
+  }
+  
