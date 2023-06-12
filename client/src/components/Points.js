@@ -37,7 +37,7 @@ const PointsPage = () => {
             <h3>Scratch Card Won</h3>
           </div>
           <div className="card">
-            <img src={giftCardImage} alt="Gift Card" />
+          <Link className="nav-link active" aria-current="page" to="./GiftCards"> <img src={giftCardImage} alt="Gift Card" /></Link>
             <h3>Gift Cards Earned</h3>
           </div>
           <div className="card">
