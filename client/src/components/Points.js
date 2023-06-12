@@ -5,7 +5,8 @@ import giftCardImage from '../images/gift card.png';
 import cashbackPointsImage from '../images/cashback points.png';
 import merchantVoucherImage from '../images/merchant loyalty.png';
 import brandVoucherImage from '../images/brand loyalty.png';
-
+import ScratchCard from './Scratch.js';
+import {Link} from 'react-router-dom';
 const PointsPage = () => {
   const [points, setPoints] = useState(0);
   const [vouchers, setVouchers] = useState([]);
@@ -30,16 +31,14 @@ const PointsPage = () => {
         <h2>My Vouchers</h2>
         <div className="cards-container">
           <div className="card">
-            <img src={scratchCardImage} alt="Scratch Card" />
+          
+     
+            <Link className="nav-link active" aria-current="page" to="./Scratch"> <img src={scratchCardImage} alt="Scratch Card" /></Link>
             <h3>Scratch Card Won</h3>
           </div>
           <div className="card">
             <img src={giftCardImage} alt="Gift Card" />
             <h3>Gift Cards Earned</h3>
-          </div>
-          <div className="card">
-            <img src={cashbackPointsImage} alt="Cashback Points" />
-            <h3>Cashback Points Earned</h3>
           </div>
           <div className="card">
             <img src={merchantVoucherImage} alt="Merchant Voucher" />
