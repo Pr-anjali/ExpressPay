@@ -179,19 +179,21 @@ const Erupi = () => {
             required
           />
         </div>
-        <br />
-        <button type="button" onClick={handleTransferClick}>
+        <div className="contact_form_button">
+        <button type="button"  className="contact_button" onClick={handleTransferClick}>
           Transfer
-
         </button>
+        </div>
         <br/>  <br/> 
         {showPinPrompt && (
           <div className="pin-prompt">
             <div className="text-center">PIN:</div>
+            <br/>
             <input type="password" value={pin} onChange={handlePinChange} required />
-            <br />
            
-            <button type="submit" onSubmit={handleTransaction}>Confirm Transfer</button>
+            <div className="contact_form_button">
+            <button type="submit" className="contact_button" onSubmit={handleTransaction}>Confirm Transfer</button>
+            </div>
           </div>
         )}
       </form>
