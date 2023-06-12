@@ -17,14 +17,14 @@ const Signup = () => {
   }
   const PostData= async(e)=>{
           e.preventDefault();
-          const {name, email,phone,work,password,cpassword}=user;
+          const {name, email,phone,work,password,cpassword,accountno,pin,balance}=user;
           const res= await fetch("/register",{
             method:"POST",
             headers:{
               "Content-Type" : "application/json"
             },
             body: JSON.stringify({
-              name , email ,phone,work,password,cpassword
+              name , email ,phone,work,password,cpassword,accountno,pin,balance
             })
           });
           const data =await res.json();
@@ -121,6 +121,38 @@ const Signup = () => {
                       onChange={handleInputs} 
                        placeholder="Confirm Your Password"></input>
                      </div>   
+
+                     <div className='form-group'>
+                      <label htmlFor="accountno">
+                        <i className="zmdi zmdi-phone-in-talk material-icons-name"></i>
+                      </label>
+                      <input type="number" name="accountno" id="accountno" autoComplete="off" 
+                      value={user.accountno} 
+                      onChange={handleInputs} 
+                       placeholder="your account Number"></input>
+                     </div>
+                     
+                     <div className='form-group'>
+                      <label htmlFor="pin">
+                        <i className="zmdi zmdi-lock material-icons-name"></i>
+                      </label>
+                      <input type="password" name="pin" id="pin" autoComplete="off"
+                      value={user.pin} 
+                      onChange={handleInputs} 
+                       placeholder="Enter your pin"></input>
+                     </div> 
+
+                     <div className='form-group'>
+                      <label htmlFor="balance">
+                        <i className="zmdi zmdi-lock material-icons-name"></i>
+                      </label>
+                      <input type="number" name="balance" id="balance" autoComplete="off"
+                      value={user.balance} 
+                      onChange={handleInputs} 
+                       placeholder="Amount deposited"></input>
+                     </div>   
+                  
+
 
                      <div className="form-group form-button">
                          <input type="submit" name="signup" id="signup" className='form-submit' value="register" onClick={(event)=>[PostData(event), sendEmail(event) ]}/> 

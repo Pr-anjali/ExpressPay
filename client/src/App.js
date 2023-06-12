@@ -22,6 +22,7 @@ import Offer from "./components/Offer";
 import { initialState,reducer } from '../src/reducer/UseReducer'
 import Referral from './components/Referral'
 import Payments from './components/Payment';
+import Erupi from './components/Erupi'
 import Otpauth from './components/otp-auth';
 // 1: contextAPI
 export const UserContext = createContext();
@@ -37,6 +38,7 @@ const App = () => {
     <Routes>
     <Route exact path='/' element={<Home/>}></Route>
       <Route exact path='/about' element={<About/>}></Route>
+      <Route exact path='/erupi' element={<Erupi/>}></Route>
       <Route exact path='/rewards' element={<Rewards/>}></Route>
       <Route exact path='/converter' element={<Converter/>}></Route>
       <Route exact path='/news' element={<News/>}></Route>
