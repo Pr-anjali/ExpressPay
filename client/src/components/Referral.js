@@ -8,6 +8,7 @@ import telegramIcon from '../images/telegram-icon.jpg';
 const Referral = () => {
   const [referralCode, setReferralCode] = useState('');
   const [isCopied, setIsCopied] = useState(false);
+  // eslint-disable-next-line
   const [email, setEmail] = useState('');
 
   const handleCopy = () => {
@@ -38,38 +39,38 @@ const Referral = () => {
 
   return (
     <div>
-      <h1 class="referalhead">Referral Page</h1>
+      <h1 className="referalhead">Referral Page</h1>
       <img src={ref} alt="Referral" width="500" height="600" align ="right"/>
-      <p class="sharep">Share this link:</p>
-      <a href={`https://example.com/referral/${referralCode}`} class="clicklink">
+      <p className="sharep">Share this link:</p>
+      <a href={`https://example.com/referral/${referralCode}`} className="clicklink">
         {`https://example.com/referral/${referralCode}`}
       </a>
       <div>
         <br></br>
-        <p class="sharep2">Or share via:</p>
-      <div className="share-buttons" class="sharebuttons">
-        <button onClick={handleEmailShare} class="shareoption">
+        <p className="sharep2">Or share via:</p>
+      <div className="share-buttons sharebuttons">
+        <button onClick={handleEmailShare} className="shareoption">
           <img src={emailIcon} alt="Email" width="40" height="40" />
         </button>
-        <button onClick={handleWhatsAppShare} class="shareoption">
+        <button onClick={handleWhatsAppShare} className="shareoption">
           <img src={whatsappIcon} alt="WhatsApp" width="40" height="40" />
         </button>
-        <button onClick={handleFacebookShare} class="shareoption">
+        <button onClick={handleFacebookShare} className="shareoption">
           <img src={facebookIcon} alt="Facebook" width="40" height="40" />
         </button>
-        <button onClick={handleTelegramShare} class="shareoption">
+        <button onClick={handleTelegramShare} className="shareoption">
           <img src={telegramIcon} alt="Telegram" width="40" height="40" />
         </button>
       </div>
       <br></br>
-      <p class="sharep3">Share your referral code with friends:</p>
+      <p className="sharep3">Share your referral code with friends:</p>
       <input
         type="text"
         value={referralCode}
         onChange={(e) => setReferralCode(e.target.value)}
       />
-      <button onClick={handleCopy} class="copy">{isCopied ? 'Copied!' : 'Copy'}</button>
-      <a href={`https://example.com/referral/${referralCode}`} class="copylink">
+      <button onClick={handleCopy} className="copy">{isCopied ? 'Copied!' : 'Copy'}</button>
+      <a href={`https://example.com/referral/${referralCode}`} className="copylink">
         {`https://example.com/referral/${referralCode}`}
       </a>
       </div>

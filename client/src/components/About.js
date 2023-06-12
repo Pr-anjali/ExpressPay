@@ -1,43 +1,41 @@
 import React, {useEffect, useState}  from 'react'
 import aboutpic from "../images/about1.png";
-// import { useHistory } from "react-router-dom";
-import { Navigate, useNavigate } from 'react-router-dom';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import PaymentsPage from './Payment.js';
 const About = () => {
 
   const navigate = useNavigate();
     const [userData, setUserData] = useState({});
 
-    const callAboutPage = async () => {
-        try {
-            const res = await fetch('/about', {
-                method: "GET",
-                headers: {
-                    Accept: "appllication/json",
-                    "Content-Type": "application/json"
-                },
-                credentials: "include"
-            });
-
-            const data = await res.json();
-            console.log(data);
-            setUserData(data);
-            console.log(res.status)
-
-            if (!res.status === 200) {     
-                const error = new Error(res.error);
-                throw error;
-            }
-
-        } 
-        catch (err) {
-            console.log(err);
-            navigate('/login');
-        }
-    }
-
+    
     useEffect(() => {
+        const callAboutPage = async () => {
+            try {
+                const res = await fetch('/about', {
+                    method: "GET",
+                    headers: {
+                        Accept: "appllication/json",
+                        "Content-Type": "application/json"
+                    },
+                    credentials: "include"
+                });
+    
+                const data = await res.json();
+                console.log(data);
+                setUserData(data);
+                console.log(res.status)
+    
+                if (!res.status === 200) {     
+                    const error = new Error(res.error);
+                    throw error;
+                }
+    
+            } 
+            catch (err) {
+                console.log(err);
+                navigate('/login');
+            }
+        }
         callAboutPage();
     }, []);
 

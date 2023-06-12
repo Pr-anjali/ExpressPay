@@ -1,7 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import {useAuthState} from 'react-firebase-hooks/auth';
-import {auth} from '../firebaseConfig';
-import { useNavigate } from 'react-router-dom';
 
 
 const Home = () => {
@@ -11,32 +8,31 @@ const Home = () => {
 
    // const [user, loading, error] = useAuthState(auth);
   
- // console.log(error);
-  const navigate = useNavigate();
   
-    const userHomePage = async () => {
-        try {
-            const res = await fetch('/getdata', {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-            });
-
-            const data = await res.json();
-            // console.log(data);
-            setUserName(data.name);
-            setShow(true);
-
-        } catch (err) {
-            console.log(err);
-            console.log("Hello")
-        }
-    }
-
     useEffect(() => {
+        const userHomePage = async () => {
+            try {
+                const res = await fetch('/getdata', {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                });
+      
+                const data = await res.json();
+                // console.log(data);
+                setUserName(data.name);
+                setShow(true);
+      
+            } catch (err) {
+                console.log(err);
+                console.log("Hello")
+            }
+        }
         userHomePage();
     }, []);
+
+
     return (
         <>
             <div className="home-page">

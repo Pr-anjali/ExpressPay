@@ -1,6 +1,6 @@
 import React,{useState, useRef }from 'react'
 import { NavLink,  useNavigate } from 'react-router-dom';
-import signpic from "../images/registration.jpg";
+import signpic from "../../images/registration.jpg";
 import emailjs from '@emailjs/browser';
 
 const Signup = () => {
@@ -56,7 +56,7 @@ const Signup = () => {
   return (
     <>
       <section className='signup'>
-        <div className='container mt-5'>
+        <div className='container'>
             <div className='signup-content'>
                 <div className='signup-form'>
                   <h2 className='form-title'>Sign Up</h2>
@@ -92,7 +92,7 @@ const Signup = () => {
                        placeholder="your Phone"></input>
                      </div>
 
-                     <div className='form-group'>
+                     {/* <div className='form-group'>
                       <label htmlFor="work">
                         <i className="zmdi zmdi-slideshow material-icons-name"></i>
                       </label>
@@ -100,7 +100,7 @@ const Signup = () => {
                       value={user.work} 
                       onChange={handleInputs} 
                        placeholder="your Profession"></input>
-                     </div>
+                     </div> */}
 
                      <div className='form-group'>
                       <label htmlFor="password">
@@ -122,7 +122,7 @@ const Signup = () => {
                        placeholder="Confirm Your Password"></input>
                      </div>   
 
-                     <div className='form-group'>
+                     {/* <div className='form-group'>
                       <label htmlFor="accountno">
                         <i className="zmdi zmdi-phone-in-talk material-icons-name"></i>
                       </label>
@@ -130,9 +130,9 @@ const Signup = () => {
                       value={user.accountno} 
                       onChange={handleInputs} 
                        placeholder="your account Number"></input>
-                     </div>
+                     </div> */}
                      
-                     <div className='form-group'>
+                     {/* <div className='form-group'>
                       <label htmlFor="pin">
                         <i className="zmdi zmdi-lock material-icons-name"></i>
                       </label>
@@ -140,9 +140,9 @@ const Signup = () => {
                       value={user.pin} 
                       onChange={handleInputs} 
                        placeholder="Enter your pin"></input>
-                     </div> 
+                     </div>  */}
 
-                     <div className='form-group'>
+                     {/* <div className='form-group'>
                       <label htmlFor="balance">
                         <i className="zmdi zmdi-lock material-icons-name"></i>
                       </label>
@@ -150,9 +150,7 @@ const Signup = () => {
                       value={user.balance} 
                       onChange={handleInputs} 
                        placeholder="Amount deposited"></input>
-                     </div>   
-                  
-
+                     </div>    */}
 
                      <div className="form-group form-button">
                          <input type="submit" name="signup" id="signup" className='form-submit' value="register" onClick={(event)=>[PostData(event), sendEmail(event) ]}/> 

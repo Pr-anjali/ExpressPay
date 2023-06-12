@@ -1,12 +1,12 @@
 import React, { useEffect, useContext } from 'react'
-import { useNavigate} from "react-router-dom";
- import {UserContext} from "../App";
+import { useNavigate } from "react-router-dom";
+//import { UserContext } from "../../App";
 
 const Logout = () => {
     // promises 
-    const { state, dispatch } = useContext(UserContext);
-    const navigate= useNavigate();
-        
+    //const { dispatch } = useContext(UserContext);
+    const navigate = useNavigate();
+
     useEffect(() => {
         fetch('/logout', {
             method: "GET",
@@ -16,7 +16,7 @@ const Logout = () => {
             },
             credentials: "include"
         }).then((res) => {
-            dispatch({ type: 'USER', payload: false });
+            //dispatch({ type: 'USER', payload: false });
             navigate('/login', { replace: true });
             if (res.status !== 200) {
                 const error = new Error(res.error);
@@ -29,7 +29,7 @@ const Logout = () => {
 
     return (
         <>
-           <h1>Logout page</h1> 
+            <h1>Logout page</h1>
         </>
     )
 }

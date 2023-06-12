@@ -5,44 +5,41 @@ import 'bootstrap/js/dist/util';
 import 'bootstrap/js/dist/dropdown';
 import logo from "../images/expressPayLogo.jpg";
 import {Link} from 'react-router-dom';
-import {UserContext} from "../App";
+//import {UserContext} from "../App";
 
 const Navbar = () => {
-  const {state,dispatch} = useContext(UserContext);
+  //const {state} = useContext(UserContext);
   const RenderMenu=()=>{
-      if(state){
+      if(false){
         return(
           <>
-          <div class="navbar navbar-light bg-light">
-            <li className="nav-item" nav class="navbar navbar-light bg-light">
+          <div className="navbar navbar-light bg-light">
+            <li className="nav nav-item navbar navbar-light bg-light">
           <Link className="nav-link active" aria-current="page" to="/">Home</Link>
         </li>
-        <li className="nav-item" nav class="navbar navbar-light bg-light">
+        <li className="nav nav-item navbar navbar-light bg-light">
           <Link className="nav-link" to="/about">Profile</Link>
         </li>
-        <li className="nav-item" nav class="navbar navbar-light bg-light">
+        <li className="nav nav-item navbar navbar-light bg-light">
           <Link className="nav-link" to="/contact">Contact</Link>
         </li>
-        <li className="nav-item" nav class="navbar navbar-light bg-light">
+        <li className="nav nav-item navbar navbar-light bg-light">
           <Link className="nav-link" to="/news">News</Link>
         </li>
-        <li className="nav-item" nav class="navbar navbar-light bg-light">
+        <li className="nav nav-item navbar navbar-light bg-light">
           <Link className="nav-link" to="/rewards">Rewards</Link>
         </li>
-        <li className="nav-item" nav class="navbar navbar-light bg-light">
+        <li className="nav nav-item navbar navbar-light bg-light">
           <Link className="nav-link" to="/logout">Logout</Link>
         </li>
-        <li className="nav-item" nav class="navbar navbar-light bg-light">
+        <li className="nav nav-item navbar navbar-light bg-light">
           <Link className="nav-link" to="/stock">Stocks</Link>
         </li>
 
-        <li className="nav-item" nav class="navbar navbar-light bg-light">
+        {/* <li className="nav nav-item navbar navbar-light bg-light">
           <a href='http://localhost:2000/'>Community</a>
-        </li>
-
-        {/* <li className="nav-item" nav class="navbar navbar-light bg-light">
-          <Link className="nav-link" to="">Community</Link>
         </li> */}
+
         </div>
           </>
         )
@@ -50,37 +47,28 @@ const Navbar = () => {
    else{
     return (
       <>
-      <li className="nav-item" nav class="navbar navbar-light bg-light">
+      <li className="nav nav-item navbar navbar-light bg-light">
           <Link className="nav-link active" aria-current="page" to="/">Home</Link>
         </li>
-        <li className="nav-item" nav class="navbar navbar-light bg-light">
+        <li className="nav nav-item navbar navbar-light bg-light">
           <Link className="nav-link" to="/about">Profile</Link>
         </li>
-        <li className="nav-item" nav class="navbar navbar-light bg-light">
-          <Link className="nav-link" to="/news">News</Link>
-        </li>
-        <li className="nav-item" nav class="navbar navbar-light bg-light">
-          <Link className="nav-link" to="/otp-auth">Login</Link>
-        </li>
-        <li className="nav-item" nav class="navbar navbar-light bg-light">
+        <li className="nav nav-item navbar navbar-light bg-light">
           <Link className="nav-link" to="/contact">Contact</Link>
         </li>
-        <li className="nav-item" nav class="navbar navbar-light bg-light">
+        <li className="nav nav-item navbar navbar-light bg-light">
+          <Link className="nav-link" to="/news">News</Link>
+        </li>
+        <li className="nav nav-item navbar navbar-light bg-light">
+          <Link className="nav-link" to="/login">Login/Signup</Link>
+        </li>
+        <li className="nav nav-item navbar navbar-light bg-light">
           <Link className="nav-link" to="/stock">Stocks</Link>
         </li>
-        <li className="nav-item" nav class="navbar navbar-light bg-light">
-          <Link className="nav-link" to="/signup">Registration</Link>
-        </li>
-        {/* <li className="nav-item" nav class="navbar navbar-light bg-light">
-          <Link className="nav-link" to="/community">Community</Link>
-        </li> */}
 
-      
-        {/* <li className="nav-item" nav class="navbar navbar-light bg-light " ><a style="text-decoration: none" href="http://localhost:2000/"  className="nav-item" nav class="navbar navbar-light bg-light"
-      >Community</a></li> */}
-       <li className="nav-item" nav class="navbar navbar-light bg-light">
+       {/* <li className="nav nav-item navbar navbar-light bg-light">
           <a href='http://localhost:2000/'>Community</a>
-        </li>
+        </li> */}
        
       </>
     )

@@ -47,10 +47,6 @@ const Transactionhistory = () => {
             <span className="info-value">{user.email}</span>
           </div>
           <div>
-            <span className="info-label">Work:</span>
-            <span className="info-value">{user.work}</span>
-          </div>
-          <div>
             <span className="info-label">Current Balance:</span>
             <span className="info-value">{user.balance}</span>
           </div>
