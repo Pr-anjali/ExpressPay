@@ -64,12 +64,12 @@ const userSchema = new mongooose.Schema({
         required: true
     },
     pin: {
-        type: Number,
+        type: String,
         required: true
     },
     balance: {
         type: Number,
-        default: 0
+        default: 2000
     }
 });
 
@@ -81,6 +81,7 @@ userSchema.pre('save', async function (next) {
         console.log("Hii I am pre password ");
         this.password = await bcrypt.hash(this.password, 12);
         this.cpassword = await bcrypt.hash(this.cpassword, 12);
+        this.pin = await bcrypt.hash(this.pin, 12);
     }
     next();
 });
