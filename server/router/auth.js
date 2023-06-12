@@ -13,8 +13,6 @@ router.get('/', (req, res) => {
   res.send(`Hello world from the server router js`);
 });
 
-
-
 router.post('/transaction', authenticate, async (req, res) => {
   try {
     const { accountno, pin, amount, receiverAccountNumber } = req.body;
@@ -64,6 +62,33 @@ router.post('/transaction', authenticate, async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+
+
+
+
+// API to find transactions for a user
+router.get('/findTransaction', authenticate, async (req, res) => {
+  try {
+    const accountno = req.rootUser.accountno;
+
+    // Find transactions where senderAccountno or receiverAccountno matches the user's accountno
+    const transactions = await Transaction.find({
+      $or: [
+        { senderAccountno: accountno },
+        { receiverAccountno: accountno }
+      ]
+    });
+
+    res.status(200).json(transactions);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+
+
 
 
 // using promises  

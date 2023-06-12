@@ -15,14 +15,14 @@ export class News extends Component{
         }
     }
     async componentDidMount(){
-      let url="https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=cce2a3b1811f46e396b6970cb5867c67&page=1&pageSize=12"
+      let url="https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=cce2a3b1811f46e396b6970cb5867c67&page=1&pageSize=12"
       this.setState({loading:true});
       let data =await fetch(url);
       let parsedData= await data.json()
       this.setState({articles:parsedData.articles,totalArticles : parsedData.totalResult,loading:false})
     }
     handlePrevClick= async ()=>{
-      let url=`https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=cce2a3b1811f46e396b6970cb5867c67&page=${this.state.page + 1}&pageSize=12`
+      let url=`https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=cce2a3b1811f46e396b6970cb5867c67&page=${this.state.page + 1}&pageSize=12`
       this.setState({loading:true});
       let data =await fetch(url);
       let parsedData= await data.json()
@@ -39,7 +39,7 @@ export class News extends Component{
       if (!(this.state.page+1>Math.ceil(this.state.totalResults/12)))
     {
          
-      let url=`https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=cce2a3b1811f46e396b6970cb5867c67&page=${this.state.page + 1}&pageSize=12`
+      let url=`https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=cce2a3b1811f46e396b6970cb5867c67&page=${this.state.page + 1}&pageSize=12`
       this.setState({loading:true});
       let data =await fetch(url);
       let parsedData= await data.json()
