@@ -5,66 +5,78 @@ const bcrypt = require('bcryptjs');
 const userSchema = new mongooose.Schema({
     name: {
         type: String,
-        required:true
+        required: true
     },
     email: {
-         type: String,
-        required:true
+        type: String,
+        required: true
     },
     phone: {
         type: Number,
-        required:true
+        required: true
     },
     work: {
-         type: String,
-        required:true
+        type: String,
+        required: true
     },
     password: {
-         type: String,
-        required:true
+        type: String,
+        required: true
     },
     cpassword: {
         type: String,
-        required:true
+        required: true
     },
     date: {
         type: Date,
-        default:Date.now
+        default: Date.now
     },
-    messages:[
+    messages: [
         {
             name: {
                 type: String,
-                required:true
+                required: true
             },
             email: {
                 type: String,
-                required:true
+                required: true
             },
             phone: {
                 type: Number,
-                required:true
+                required: true
             },
             message: {
                 type: String,
-                required:true
+                required: true
             }
         }
-    ], 
+    ],
     tokens: [
         {
             token: {
-               type: String,
-               required:true 
+                type: String,
+                required: true
             }
         }
-    ]
-})
+    ],
+    accountno: {
+        type: Number,
+        required: true
+    },
+    pin: {
+        type: Number,
+        required: true
+    },
+    balance: {
+        type: Number,
+        default: 0
+    }
+});
 
 
-// we are hashing the password  
+// we are hashing the password
 userSchema.pre('save', async function (next) {
- console.log("Hii I am pre ");
+    console.log("Hii I am pre ");
     if (this.isModified('password')) {
         console.log("Hii I am pre password ");
         this.password = await bcrypt.hash(this.password, 12);
@@ -73,7 +85,7 @@ userSchema.pre('save', async function (next) {
     next();
 });
 
-// we are generating token 
+// we are generating token
 userSchema.methods.generateAuthToken = async function () {
     try {
         let token = jwt.sign({ _id: this._id }, process.env.SECRET_KEY);
@@ -85,21 +97,18 @@ userSchema.methods.generateAuthToken = async function () {
     }
 }
 
-// stored the message 
-
+// stored the message
 userSchema.methods.addMessage = async function (name, email, phone, message) {
     try {
         this.messages = this.messages.concat({ name, email, phone, message });
         await this.save();
         return this.messages;
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
 }
 
-
-// collection creation 
+// collection creation
 const User = mongooose.model('USER', userSchema);
 
 module.exports = User;
-

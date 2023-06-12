@@ -1,25 +1,90 @@
 const jwt = require('jsonwebtoken');
 const express = require('express');
-const dotenv =require("dotenv")
+const dotenv = require('dotenv');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-const authenticate = require("../middleware/authenticate");
-
+const authenticate = require('../middleware/authenticate');
 
 require('../db/conn');
-const User = require("../model/userSchema");
+const User = require('../model/userSchema');
 
 router.get('/', (req, res) => {
-    res.send(`Hello world from the server rotuer js`);
+  res.send(`Hello world from the server router js`);
 });
 
+// ...existing code...
 
+// Deduct amount from user's account
+router.post('/deductAmount', authenticate, async (req, res) => {
+  try {
+    const { amount, pin } = req.body;
+    const user = req.rootUser;
+
+    if (!user) {
+      return res.status(400).json({ error: 'User not found' });
+    }
+
+    // Verify PIN
+    const isMatch = await bcrypt.compare(pin, user.pin);
+    if (!isMatch) {
+      return res.status(400).json({ error: 'Invalid PIN' });
+    }
+
+    if (user.balance < amount) {
+      return res.status(400).json({ error: 'Insufficient balance' });
+    }
+
+    user.balance -= amount;
+    await user.save();
+
+    res.status(200).json({ message: 'Amount deducted successfully' });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Add amount to receiver's account
+router.post('/addAmount', authenticate, async (req, res) => {
+  try {
+    const { receiverAccountNumber, amount } = req.body;
+    const sender = req.rootUser;
+
+    if (!sender) {
+      return res.status(400).json({ error: 'User not found' });
+    }
+
+    const receiver = await User.findOne({ accountno: receiverAccountNumber });
+
+    if (!receiver) {
+      return res.status(400).json({ error: 'Receiver not found' });
+    }
+
+    // Update sender's balance
+    if (sender.balance < amount) {
+      return res.status(400).json({ error: 'Insufficient balance' });
+    }
+    sender.balance -= amount;
+
+    // Update receiver's balance
+    receiver.balance += amount;
+
+    await Promise.all([sender.save(), receiver.save()]);
+
+    res.status(200).json({ message: 'Amount added successfully' });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// ...remaining code...
 
 // using promises  
 
 router.post('/register', (req, res) => {
 
-    const { name, email, phone, work, password, cpassword} = req.body;
+    const { name, email, phone, work, password, cpassword,accountno,pin,balance} = req.body;
     
     if (!name || !email || !phone || !work || !password || !cpassword) {
         return res.status(422).json({ error: "Plz filled the field properly" });
@@ -31,7 +96,7 @@ router.post('/register', (req, res) => {
                 return res.status(422).json({ error: "Email already Exist" });
             }
             
-            const user = new User({ name, email, phone, work, password, cpassword });
+            const user = new User({ name, email, phone, work, password, cpassword,accountno,pin,balance });
 
             user.save().then(() => {
                 res.status(201).json({ message: "user registered successfuly" });
@@ -45,7 +110,7 @@ router.post('/register', (req, res) => {
 
 router.post('/register', async (req, res) => {
 
-    const { name, email, phone, work, password, cpassword} = req.body;
+    const { name, email, phone, work, password, cpassword, accountno ,pin ,balance } = req.body;
     
     if (!name || !email || !phone || !work || !password || !cpassword) {
         return res.status(422).json({ error: "Plz filled the field properly" });
@@ -60,7 +125,7 @@ router.post('/register', async (req, res) => {
         } else if (password != cpassword) {
              return res.status(422).json({ error: "password are not matching" });
         } else {
-             const user = new User({ name, email, phone, work, password, cpassword });
+             const user = new User({ name, email, phone, work, password, cpassword ,accountno,pin,balance});
             // yeha pe 
             await user.save();
             res.status(201).json({ message: "user registered successfuly" });
@@ -130,6 +195,8 @@ router.get('/getdata', authenticate, (req, res) => {
     res.send(req.rootUser);
 });
 
+
+
 // contact us page 
 
 router.post('/contact', authenticate, async (req, res) => {
@@ -170,4 +237,3 @@ router.get('/logout', (req, res) => {
 
 
 module.exports = router;
-
