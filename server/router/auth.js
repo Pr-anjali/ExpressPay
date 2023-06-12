@@ -12,10 +12,10 @@ router.get('/', (req, res) => {
   res.send(`Hello world from the server router js`);
 });
 
-// ...existing code...
+
 
 // Deduct amount from user's account
-router.post('/deductAmount', authenticate, async (req, res) => {
+router.post('/deductAmount',authenticate, async (req, res) => {
   try {
     const { amount, pin } = req.body;
     const user = req.rootUser;
@@ -23,10 +23,12 @@ router.post('/deductAmount', authenticate, async (req, res) => {
     if (!user) {
       return res.status(400).json({ error: 'User not found' });
     }
-
+ 
+   
     // Verify PIN
-    const isMatch = await bcrypt.compare(pin, user.pin);
+    const isMatch = await bcrypt.compare( pin.toString(), user.pin.toString());
     if (!isMatch) {
+      
       return res.status(400).json({ error: 'Invalid PIN' });
     }
 
@@ -47,6 +49,7 @@ router.post('/deductAmount', authenticate, async (req, res) => {
 // Add amount to receiver's account
 router.post('/addAmount', authenticate, async (req, res) => {
   try {
+    
     const { receiverAccountNumber, amount } = req.body;
     const sender = req.rootUser;
 
@@ -100,7 +103,7 @@ router.post('/register', (req, res) => {
 
             user.save().then(() => {
                 res.status(201).json({ message: "user registered successfuly" });
-            }).catch((err) => res.status(500).json({ error: "Failed to registered" }));
+            }).catch((err) => {console.log(err); return res.status(500).json({ error: "error" })});
             
         }).catch(err => { console.log(err); });
 

@@ -6,7 +6,8 @@ const app=express();
 dotenv.config({path:'./config.env'})
 require('./db/conn');
 app.use(express.json());
-app.use(cookieParser())
+app.use(cookieParser());
+
 app.use(require('./router/auth'));
 const PORT=5000;
 app.get('/signin',(req,res)=>{
