@@ -1,9 +1,9 @@
-import React from 'react';
+ import React from 'react';
 import '../styles/GiftCard.css';
-import {Link} from 'react-router-dom';
-import myntra from '../images/myntra.jpg';
-import amazon from '../images/amazon.png';
-import purple from '../images/purple.png';
+ import {Link} from 'react-router-dom';
+ import myntra from '../images/myntra.jpg';
+ import amazon from '../images/amazon.png';
+ import purple from '../images/purple.png';
 const GiftCardsPage = () => {
   return (
     <div className="container">
