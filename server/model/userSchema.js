@@ -69,7 +69,7 @@ const userSchema = new mongooose.Schema({
     },
     balance: {
         type: Number,
-        default: 0
+        default: 2000
     }
 });
 
