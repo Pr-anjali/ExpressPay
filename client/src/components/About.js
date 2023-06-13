@@ -33,7 +33,7 @@ const About = () => {
         } 
         catch (err) {
             console.log(err);
-            navigate('/login');
+            // navigate('/login');
         }
     }
 
