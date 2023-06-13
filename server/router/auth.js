@@ -13,6 +13,31 @@ router.get('/', (req, res) => {
   res.send(`Hello world from the server router js`);
 });
 
+router.post('/checkAccountNoAndPin', authenticate, async (req, res) => {
+  try {
+    const { accountno, pin } = req.body;
+    const user = req.rootUser;
+
+    if (!user) {
+      return res.status(400).json({ error: 'User not found' });
+    }
+
+    if (user.accountno === 0) {
+      return res.status(400).json({ error: 'Please provide your account number' });
+    }
+
+    if (!user.pin) {
+      return res.status(400).json({ error: 'Please set your PIN' });
+    }
+
+    res.status(200).json({ message: 'Account number and PIN checked successfully' });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+
 router.post('/transaction', authenticate, async (req, res) => {
   try {
     const { accountno, pin, amount, receiverAccountNumber } = req.body;
@@ -20,11 +45,6 @@ router.post('/transaction', authenticate, async (req, res) => {
 
     if (!sender) {
       return res.status(400).json({ error: 'User not found' });
-    }
-
-    // Check if accountno is 0 or pin is an empty string
-    if (accountno === 0 || pin === '') {
-      return res.status(400).json({ error: 'Please give your Account Number and Pin on the profile page' });
     }
 
     // Verify PIN
