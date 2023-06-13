@@ -132,23 +132,16 @@ router.put('/updateAccountno', authenticate, async (req, res) => {
 
 
 
-
-
-// API to find transactions for a user
+// API to find transactions for the current user
 router.get('/findTransaction', authenticate, async (req, res) => {
   try {
     const accountno = req.rootUser.accountno;
 
-    // Check if accountno is 0
-    if (accountno === 0) {
-      return res.status(400).json({ error: 'Please provide your account Number on the profile page' });
-    }
-
-    // Find transactions where senderAccountno or receiverAccountno matches the user's accountno
+    // Find transactions where senderAcountno or receiverAcountno matches the current user's accountno
     const transactions = await Transaction.find({
       $or: [
-        { senderAccountno: accountno },
-        { receiverAccountno: accountno }
+        { senderAcountno: accountno },
+        { receiverAcountno: accountno }
       ]
     });
 
@@ -158,6 +151,8 @@ router.get('/findTransaction', authenticate, async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+
 
 
 

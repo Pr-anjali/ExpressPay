@@ -1,12 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Erupi.css';
+import fiftyrupee from "../images/fiftyrupees.jpg";
+import fiftycoin from "../images/fiftycoinneww.jpg";
+import fivehundred from "../images/fivehundredrupees.jpg";
+import fiverupees from "../images/fiverupees.jpg";
+import hundredrupees from "../images/hundredrupees.jpg";
+import onerupees from "../images/onerupeesnew.jpg";
+import twohundredrupees from "../images/twohundredrupees.jpg";
+import tworupees from "../images/tworupees.jpg";
+import twothousandrupees from "../images/twothousandrupees.jpg";
 import { useNavigate } from 'react-router-dom';
 
 const Erupi = () => {
   const navigate = useNavigate();
   const [userData, setUserData] = useState({ name: '', email: '', accountno: '', balance: 0 });
+  const [amount, setAmount] = useState('');
+  const [receiverAccountNumber, setReceiverAccountNumber] = useState('');
+  const [receiverName, setReceiverName] = useState('');
+  const [pin, setPin] = useState('');
+  const [showPinPrompt, setShowPinPrompt] = useState(false);
 
-  
   useEffect(() => {
     const Erupidata = async () => {
       try {
@@ -16,11 +29,11 @@ const Erupi = () => {
             'Content-Type': 'application/json',
           },
         });
-  
+
         const data = await res.json();
         console.log(data);
         setUserData({ ...userData, name: data.name, email: data.email, accountno: data.accountno, balance: data.balance });
-  
+
         if (!res.status === 200) {
           const error = new Error(res.error);
           throw error;
@@ -31,12 +44,6 @@ const Erupi = () => {
     };
     Erupidata();
   }, []);
-
-  const [amount, setAmount] = useState('');
-  const [receiverAccountNumber, setReceiverAccountNumber] = useState('');
-  const [receiverName, setReceiverName] = useState('');
-  const [pin, setPin] = useState('');
-  const [showPinPrompt, setShowPinPrompt] = useState(false);
 
   const handleAmountChange = (e) => {
     setAmount(e.target.value);
@@ -122,7 +129,11 @@ const Erupi = () => {
   };
 
   const handleViewTransactions = () => {
-    return navigate('/transactionhistory')
+    return navigate('/transactionhistory');
+  };
+
+  const handleAmountImageClick = (clickedAmount) => {
+    setAmount(clickedAmount);
   };
 
   return (
@@ -139,6 +150,24 @@ const Erupi = () => {
       </div>
 
       <h2>Transaction Details</h2>
+      <div className="amount-images-container">
+        <div className="rupee-notes">
+          <img src={fivehundred} alt="500 Rupee Note" onClick={() => handleAmountImageClick(500)} />
+          <img src={fiftyrupee} alt="50 Rupee Note" onClick={() => handleAmountImageClick(50)} />
+          <img src={fiverupees} alt="5 Rupee Note" onClick={() => handleAmountImageClick(5)} />
+          <img src={hundredrupees} alt="100 Rupee Note" onClick={() => handleAmountImageClick(100)} />
+          <img src={twohundredrupees} alt="200 Rupee Note" onClick={() => handleAmountImageClick(200)} />
+          <img src={tworupees} alt="2 Rupee Note" onClick={() => handleAmountImageClick(2)} />
+          <img src={twothousandrupees} alt="2000 Rupee Note" onClick={() => handleAmountImageClick(2000)} />
+        </div>
+        <div className="coin-notes">
+          <div className="coin-images-row">
+            <img src={onerupees} alt="1 Rupee coin" onClick={() => handleAmountImageClick(1)} />
+            <img src={fiftycoin} alt="50 Paisa coin" onClick={() => handleAmountImageClick(0.5)} />
+          </div>
+        </div>
+      </div>
+
       <form>
         <div className="text-center">Amount:</div>
         <input type="number" value={amount} onChange={handleAmountChange} required />

@@ -1,24 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+
 import '../styles/Transactionhistory.css';
 
 const Transactionhistory = () => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   const [transactions, setTransactions] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Fetch user information and transactions when the component mounts
     fetchUser();
     fetchTransactions();
+
+    // Clear user and transactions data when the component unmounts
+    return () => {
+      setUser(null);
+      setTransactions([]);
+    };
   }, []);
 
   const fetchUser = async () => {
     try {
-      // Make an API call to fetch user information
+      // Make an API call to fetch user information based on the current user
       const response = await axios.get('/getdata');
       setUser(response.data);
+      setIsLoading(false);
     } catch (error) {
-      console.log(error);
+      setError('Error fetching user information');
+      setIsLoading(false);
     }
   };
 
@@ -31,6 +41,18 @@ const Transactionhistory = () => {
       console.log(error);
     }
   };
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  if (!user) {
+    return <div>No user found</div>;
+  }
 
   return (
     <div className="transaction-page">

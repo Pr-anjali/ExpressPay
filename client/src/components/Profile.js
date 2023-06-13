@@ -41,31 +41,31 @@ const Profile = () => {
     callAboutPage();
   }, []);
 
-    // const saveAccountInfo = async () => {
-    //     try {
-    //         const res = await fetch('/save-account-info', {
-    //             method: "POST",
-    //             headers: {
-    //                 Accept: "application/json",
-    //                 "Content-Type": "application/json"
-    //             },
-    //             credentials: "include",
-    //             body: JSON.stringify({ accountNo, pin })
-    //         });
+    const saveAccountInfo = async () => {
+        try {
+            const res = await fetch('/save-account-info', {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },
+                credentials: "include",
+                body: JSON.stringify({ accountNo, pin })
+            });
 
-    //         const data = await res.json();
-    //         console.log(data);
-    //         // Handle the response as needed
+            const data = await res.json();
+            console.log(data);
+            // Handle the response as needed
 
-    //         if (!res.status === 200) {
-    //             const error = new Error(res.error);
-    //             throw error;
-    //         }
-    //     } catch (err) {
-    //         console.log(err);
-    //         // Handle error
-    //     }
-    // };
+            if (!res.status === 200) {
+                const error = new Error(res.error);
+                throw error;
+            }
+        } catch (err) {
+            console.log(err);
+            // Handle error
+        }
+    };
 
     const handleERupiClick = async (e) => {
         e.preventDefault();
