@@ -67,6 +67,10 @@ const Profile = () => {
     }
   };
 
+  const CurrencyConverter = () => {
+    return navigate('/converter');
+  }
+
   const handleERupiClick = () => {
     if (!userData.accountno || userData.pin === '') {
       // Prompt the user to enter their account number and pin
@@ -269,11 +273,15 @@ const Profile = () => {
           </div>
         </form>
         <div className="buttons">
-          <button onClick={() => Razorpayaay(2321)}>Razorpay Transaction</button>
+          <button onClick={() => Razorpayaay(2321)}>Digital Transaction</button>
         </div>
         <br></br>
         <div className="buttons">
           <button onClick={() => handleERupiClick()}>e-RUPI Transaction</button>
+        </div>
+        <br></br>
+        <div className="buttons">
+          <button onClick={() => CurrencyConverter()}>Currency Converter</button>
         </div>
         <PaymentsPage />
       </div>
