@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Erupi = () => {
   const navigate = useNavigate();
-  const [userData, setUserData] = useState({ name: '', email: '', accountno: '', pin: '', balance: 0 });
+  const [userData, setUserData] = useState({ name: '', email: '', accountno: '', balance: 0 });
 
   
   useEffect(() => {
@@ -19,7 +19,7 @@ const Erupi = () => {
   
         const data = await res.json();
         console.log(data);
-        setUserData({ ...userData, name: data.name, email: data.email, accountno: data.accountno, pin: data.pin, balance: data.balance });
+        setUserData({ ...userData, name: data.name, email: data.email, accountno: data.accountno, balance: data.balance });
   
         if (!res.status === 200) {
           const error = new Error(res.error);
@@ -61,7 +61,8 @@ const Erupi = () => {
   const handleTransaction = async (e) => {
     e.preventDefault();
 
-    const { accountno, pin, balance } = userData;
+    const { accountno, balance } = userData;
+    console.log(pin);
 
     try {
       const res = await fetch('/transaction', {

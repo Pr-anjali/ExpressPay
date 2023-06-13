@@ -12,6 +12,7 @@
     "audit": "^0.0.6",
     "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
+    "dotenv": "^16.1.4",
     "firebase": "^9.22.2",
     "fix": "^0.0.6",
     "plotly.js": "^2.24.1",
@@ -27,7 +28,8 @@
     "react-transition-group": "^4.4.5",
     "redux": "^4.2.1",
     "stream": "^0.0.2",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "web3": "^4.0.1"
   },
   "browser": {
     "image-size": false

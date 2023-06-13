@@ -12,7 +12,7 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const [user, setuser] = useState({
-    name: "", email: "", phone: "", work: "", password: "", cpassword: ""
+    name: "", email: "", phone: "", password: "", cpassword: ""
   })
   let name, value;
   const handleInputs = (e) => {
@@ -23,14 +23,14 @@ const Signup = () => {
   }
   const PostData = async (e) => {
     e.preventDefault();
-    const { name, email, phone, work, password, cpassword, accountno, pin, balance } = user;
+    const { name, email, phone, password, cpassword} = user;
     const res = await fetch("/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        name, email, phone, work, password, cpassword, accountno, pin, balance
+        name, email, phone, password, cpassword
       })
     });
     const data = await res.json();
@@ -41,8 +41,9 @@ const Signup = () => {
     else {
       window.alert("Registration successful")
       console.log("Successful Registration")
-      dispatch(login(data));
-      navigate('/login')
+      console.log(data);
+      dispatch(login(data)); 
+      navigate('/');
     }
   }
 
@@ -97,16 +98,6 @@ const Signup = () => {
                     onChange={handleInputs}
                     placeholder="your Phone"></input>
                 </div>
-
-                {/* <div className='form-group'>
-                      <label htmlFor="work">
-                        <i className="zmdi zmdi-slideshow material-icons-name"></i>
-                      </label>
-                      <input type="text" name="work" id="work" autoComplete="off" 
-                      value={user.work} 
-                      onChange={handleInputs} 
-                       placeholder="your Profession"></input>
-                     </div> */}
 
                 <div className='form-group'>
                   <label htmlFor="password">

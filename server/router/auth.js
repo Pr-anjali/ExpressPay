@@ -13,42 +13,48 @@ router.get('/', (req, res) => {
   res.send(`Hello world from the server router js`);
 });
 
-router.post('/checkAccountNoAndPin', authenticate, async (req, res) => {
-  try {
-    const { accountno, pin } = req.body;
-    const user = req.rootUser;
+// ...
 
+// Save account number and pin
+router.post('/save-account-info', authenticate, async (req, res) => {
+  try {
+    const { accountNo, pin } = req.body;
+    const user = req.rootUser;
+     
     if (!user) {
       return res.status(400).json({ error: 'User not found' });
     }
+     
+    // Update user's account number and pin
+    user.accountno = accountNo;
+    user.pin = pin;
+    console.log(user.pin);
+    console.log(pin);
+    await user.save();
 
-    if (user.accountno === 0) {
-      return res.status(400).json({ error: 'Please provide your account number' });
-    }
-
-    if (!user.pin) {
-      return res.status(400).json({ error: 'Please set your PIN' });
-    }
-
-    res.status(200).json({ message: 'Account number and PIN checked successfully' });
+    res.status(200).json({ message: 'Account number and pin saved successfully' });
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
 
+// ...
 
 router.post('/transaction', authenticate, async (req, res) => {
   try {
     const { accountno, pin, amount, receiverAccountNumber } = req.body;
     const sender = req.rootUser;
-
+   console.log(sender)
     if (!sender) {
       return res.status(400).json({ error: 'User not found' });
     }
 
     // Verify PIN
     const isMatch = await bcrypt.compare(pin.toString(), sender.pin.toString());
+    console.log(isMatch);
+    console.log(pin.toString())
+    console.log(sender.pin.toString())
     if (!isMatch) {
       return res.status(400).json({ error: 'Invalid PIN' });
     }
@@ -181,19 +187,6 @@ router.post('/register', (req, res) => {
             
         }).catch(err => { console.log(err); });
 
-        // User.findOne({ accountno: accountno })
-        // .then((userExist) => {
-        //     if (userExist) {
-        //         return res.status(422).json({ error: "Account Number already Exists" });
-        //     }
-            
-        //     const user = new User({ name, email, phone, password, cpassword });
-
-        //     user.save().then(() => {
-        //         res.status(201).json({ message: "user registered successfuly" });
-        //     }).catch((err) => {console.log(err); return res.status(500).json({ error: "User registration failed!" })});
-            
-        // }).catch(err => { console.log(err); });
 
 });
 
