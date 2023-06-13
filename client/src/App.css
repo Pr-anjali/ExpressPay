@@ -1224,9 +1224,9 @@ Link {
 .rewards-container {
   display: flex;
   flex-wrap: wrap;
-}
+} 
 
-.reward-card {
+ .reward-card {
   width: 300px;
   padding: 16px;
   margin: 16px;
@@ -1235,7 +1235,7 @@ Link {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.fade-enter {
+ .fade-enter {
   opacity: 0;
 }
 
@@ -1318,7 +1318,7 @@ header {
   color: white;
   border: none;
   cursor: pointer;
-}
+} 
 
 footer {
   /* background-color: #f0f0f0; */
@@ -1585,3 +1585,103 @@ footer {
 
 
 
+/* 
+.rewards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.reward-card {
+  display:flex;
+  flex-direction: row;
+  width: 300px;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reward-card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.reward-card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.reward-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.reward-card p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+} */
+
+.rewards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.reward-card {
+  width: 300px;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.reward-card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.reward-card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.reward-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.reward-card p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.button-container {
+  margin-top: auto;
+  width:150px;
+  height:50px;
+  color:white;
+  background-color:#fc5185;
+  border-radius: 10px;
+
+}
