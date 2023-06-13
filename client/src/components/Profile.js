@@ -32,14 +32,14 @@ const Profile = () => {
                     throw error;
                 }
 
-            }
-            catch (err) {
-                console.log(err);
-                navigate('/login');
-            }
-        };
-        callAboutPage();
-    }, []);
+      }
+      catch (err) {
+        console.log(err);
+        // navigate('/login');
+      }
+    };
+    callAboutPage();
+  }, []);
 
     // const saveAccountInfo = async () => {
     //     try {
