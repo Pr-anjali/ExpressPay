@@ -2,7 +2,7 @@ import '../styles/ConverterPage.css';
 import CurrencyInput from "./CurrencyInput";
 import {useState, useEffect} from "react";
 import axios from "axios";
-import ref from '../images/ref.jpg';
+import ref from '../images/curry.png';
 
 function Converter() {
 
@@ -55,7 +55,7 @@ function Converter() {
   return (
     <div>
          
-      <h1 className='text-center' style={{color : 'black',margin : '50px'}}>Currency Converter</h1>
+      <h1 className='text-center' style={{color : '#FC5185',margin : '50px'}}>Currency Converter</h1>
       <img src={ref} alt="Referral" width="500" height="600" align ="right"/>
       <CurrencyInput
         onAmountChange={handleAmount1Change}

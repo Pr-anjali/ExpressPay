@@ -1320,12 +1320,12 @@ header {
   cursor: pointer;
 } 
 
-footer {
-  /* background-color: #f0f0f0; */
+/* footer {
+  background-color: #f0f0f0;
   /* padding: 20px; */
   /* display: flex; */
-  /* justify-content: space-between; */
-}
+  /* justify-content: space-between; 
+} */
 .offer-card {
   width: 700px;
   height: 300px;
