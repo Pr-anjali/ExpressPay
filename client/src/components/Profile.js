@@ -7,6 +7,8 @@ const Profile = () => {
   const navigate = useNavigate();
   const [userData, setUserData] = useState({});
   const [error, setError] = useState('');
+  const [accountNo, setAccountNo] = useState('');
+  const [pin, setPin] = useState('');
 
   useEffect(() => {
     const callAboutPage = async () => {
@@ -25,7 +27,7 @@ const Profile = () => {
         setUserData(data);
         console.log(res.status);
 
-        if (!res.status === 200) {
+        if (res.status !== 200) {
           const error = new Error(res.error);
           throw error;
         }
@@ -38,6 +40,51 @@ const Profile = () => {
     };
     callAboutPage();
   }, []);
+
+  const saveAccountInfo = async () => {
+    try {
+      const res = await fetch('/save-account-info', {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        credentials: "include",
+        body: JSON.stringify({ accountNo, pin })
+      });
+
+      const data = await res.json();
+      console.log(data);
+      // Handle the response as needed
+
+      if (!res.status === 200) {
+        const error = new Error(res.error);
+        throw error;
+      }
+    } catch (err) {
+      console.log(err);
+      // Handle error
+    }
+  };
+
+  const handleERupiClick = () => {
+    if (!userData.accountno || userData.pin === '') {
+      // Prompt the user to enter their account number and pin
+      const newAccountNo = parseInt(prompt('Enter your account number:'));
+      const newPin = prompt('Enter your pin:');
+      
+      if (newAccountNo && newPin) {
+        setAccountNo(newAccountNo);
+        setPin(newPin);
+        saveAccountInfo();
+      } else {
+        return navigate('/profile');
+      }
+    } else {
+        return navigate('/erupi')
+    }
+  };
+
 
   const loadScript = (src) => {
     return new Promise((resolve) => {
@@ -56,34 +103,7 @@ const Profile = () => {
     });
   };
 
-  const eRupi = async () => {
-    const res = await checkAccountNoAndPin();
-    if (res.pin === null || res.accountno === 0) {
-      setError("Please provide your PIN and Account No.");
-    } else {
-      navigate('/erupi');
-    }
-  };
 
-  const checkAccountNoAndPin = async () => {
-    try {
-      const res = await fetch('/checkAccountNoAndPin', {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        },
-        credentials: "include"
-      });
-  
-      const data = await res.json();
-      return data;
-    } catch (err) {
-      console.log(err);
-      return {};
-    }
-  };
-  
 
   const Razorpayaay = async (paise) => {
     const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js');
@@ -126,7 +146,6 @@ const Profile = () => {
             <div className="col-md-6">
               <div className="profile-head">
                 <h5>{userData.name}</h5>
-                <h6>{userData.work}</h6>
                 <p className="profile-rating mt-3 mb-5">RANKINGS: <span> 1/10 </span></p>
 
                 <ul className="nav nav-tabs" role="tablist">
@@ -154,7 +173,7 @@ const Profile = () => {
                 <a>Facebook</a> <br />
                 <a>Web Developer</a> <br />
                 <a>Projects</a> <br />
-                <a>RVDK</a> <br />
+                <a>The Code Fabs</a> <br />
               </div>
             </div>
 
@@ -254,7 +273,7 @@ const Profile = () => {
         </div>
         <br></br>
         <div className="buttons">
-          <button onClick={() => eRupi()}>e-RUPI Transaction</button>
+          <button onClick={() => handleERupiClick()}>e-RUPI Transaction</button>
         </div>
         <PaymentsPage />
       </div>
