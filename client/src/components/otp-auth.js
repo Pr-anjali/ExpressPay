@@ -49,7 +49,7 @@ import { isSignInWithEmailLink, sendSignInLinkToEmail, signInWithEmailLink } fro
         }).catch((err)=>{
           setInitialLoading(false);
           setInitialError(err.message);
-          navigate('/login');
+          navigate('/');
         })
       }
       else{
