@@ -111,14 +111,14 @@ const Cashback = () => {
     return (
       <div className="offer-card">
         <h2>{offer.title}</h2>
-        <div class="searchbox2">
+        <div className="searchbox2">
         <div> 
           <p>Expiration Date: {offer.expirationDate}</p>
         <p>Cashback Percentage: {offer.cashbackPercentage}%</p>
         <p>Category: {offer.category}</p>
         </div>
        
-       <div  class="imagecash">
+       <div  className="imagecash">
        <img src={offer.image} alt={offer.title} width="200px"/>
        </div>
         </div>
@@ -141,7 +141,7 @@ const Cashback = () => {
             value={offerFeedback[offer.id]?.rating || ''}
             onChange={(e) => handleUserRatingChange(e, offer.id)}
           />
-          <button onClick={() => submitUserFeedback(offer.id)} class="submitbutton">Submit</button>
+          <button onClick={() => submitUserFeedback(offer.id)} className="submitbutton">Submit</button>
         </div>
       </div>
     );
@@ -149,10 +149,10 @@ const Cashback = () => {
 
   return (
     <div className="cashback-page">
-      <h1 class="headingcashback">Welcome to Cashback Page</h1>
+      <h1 className="headingcashback">Welcome to Cashback Page</h1>
 
-      <div className="search-filter" class="search-filter-design">
-        <div class="searchbox">
+      <div className="search-filter search-filter-design">
+        <div className="searchbox">
           <input
             type="text"
             placeholder="Search..."
@@ -164,9 +164,9 @@ const Cashback = () => {
       
         <div>
           <select value={sortOption} onChange={handleSortOptionChange} >
-            <option value="" class="option">Sort By</option>
-            <option value="expiration" class="option">Expiration Date</option>
-            <option value="cashback" class="option">Cashback Percentage</option>
+            <option value="" className="option">Sort By</option>
+            <option value="expiration" className="option">Expiration Date</option>
+            <option value="cashback" className="option">Cashback Percentage</option>
           </select>
         </div>
         

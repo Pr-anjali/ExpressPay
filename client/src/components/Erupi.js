@@ -1,34 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Erupi.css';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Erupi = () => {
   const navigate = useNavigate();
   const [userData, setUserData] = useState({ name: '', email: '', accountno: '', pin: '', balance: 0 });
 
-  const Erupidata = async () => {
-    try {
-      const res = await fetch('/getdata', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      const data = await res.json();
-      console.log(data);
-      setUserData({ ...userData, name: data.name, email: data.email, accountno: data.accountno, pin: data.pin, balance: data.balance });
-
-      if (!res.status === 200) {
-        const error = new Error(res.error);
-        throw error;
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
+  
   useEffect(() => {
+    const Erupidata = async () => {
+      try {
+        const res = await fetch('/getdata', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+  
+        const data = await res.json();
+        console.log(data);
+        setUserData({ ...userData, name: data.name, email: data.email, accountno: data.accountno, pin: data.pin, balance: data.balance });
+  
+        if (!res.status === 200) {
+          const error = new Error(res.error);
+          throw error;
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    };
     Erupidata();
   }, []);
 

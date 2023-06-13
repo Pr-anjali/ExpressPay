@@ -1,77 +1,74 @@
-import React, { createContext, useReducer } from 'react'
-import "./App.css"
-import 'bootstrap/dist/css/bootstrap.css'
-import Navbar from "./components/Navbar"
-import Home from "./components/Home"
-import Chatbot from "./components/Chatbot"
-import About from "./components/About"
-import Rewards from "./components/Rewards"
-import Converter from "./components/Converter"
-import Contact from "./components/Contact"
-import Login from "./components/Login"
-import Signup from "./components/Signup"
-import NewsItems from './components/NewsItems'
-import News from './components/News'
-import Stock from './components/Stock'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Errorpage from './components/Errorpage'
-import Logout from "./components/Logout";
-import Points from "./components/Points";
-import Cashback from "./components/Cashback";
-import Offer from "./components/Offer";
-import { initialState,reducer } from '../src/reducer/UseReducer'
-import Referral from './components/Referral'
+
+import React from 'react';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import Chatbot from './components/Chatbot';
+import Profile from './components/Profile';
+import Rewards from './components/Rewards';
+import Converter from './components/Converter';
+import Contact from './components/Contact';
+import Login from './components/Authentication/Login';
+import Signup from './components/Authentication/Signup';
+import NewsItems from './components/NewsItems';
+import News from './components/News';
+import Stock from './components/Stock';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import Errorpage from './components/Errorpage';
+import Points from './components/Points';
+import Cashback from './components/Cashback';
+import Offer from './components/Offer';
+import Referral from './components/Referral';
 import Payments from './components/Payment';
-import Erupi from './components/Erupi'
-import Otpauth from './components/otp-auth';
+import Erupi from './components/Erupi';
 import ScratchCard from './components/Scratch';
 import GiftCard from './components/GiftCards';
 import Transactionhistory from './components/Transactionhistory';
-// 1: contextAPI
-export const UserContext = createContext();
+import { useSelector } from 'react-redux';
+import { selectUser } from './features/userSlice';
 
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const user = useSelector(selectUser);
+
+  const ProtectedRoute = ({ element: Component, pageName, ...props }) => {
+    if (!user) {
+      alert(`Please log in to access ${pageName}.`);
+      return <Navigate to="/login" />;
+    }
+    return <Component {...props} />;
+  };
 
   return (
     <>
-    <UserContext.Provider value={{state, dispatch}}>
-    <BrowserRouter>
-    <Navbar/>
-    <Routes>
-    <Route exact path='/' element={<Home/>}></Route>
-      <Route exact path='/about' element={<About/>}></Route>
-      <Route exact path='/erupi' element={<Erupi/>}></Route>
-      <Route exact path='/rewards' element={<Rewards/>}></Route>
-      <Route exact path='/converter' element={<Converter/>}></Route>
-      <Route exact path='/news' element={<News/>}></Route>
-      <Route exact path='/stock' element={<Stock/>}></Route>
-      <Route exact path='/newsitems' element={<NewsItems/>}></Route>
-      <Route exact path='/offer' element={<Offer/>}></Route>
-      <Route exact path='/cashback' element={<Cashback/>}></Route>
-      <Route exact path='/points' element={<Points/>}></Route>
-      <Route exact path='/referral' element={<Referral/>}></Route>
-      <Route exact path='/login' element={<Login/>}></Route>
-      <Route exact path='/contact' element={<Contact/>}></Route>
-      <Route exact path='/signup' element={<Signup/>}></Route>
-      <Route exact path='/logout' element={<Logout/>}></Route>
-      <Route exact path='*' element={<Errorpage/>}></Route>
-      <Route exact path='/payment' element={<Payments/>}></Route>
-      <Route exact path='/otp-auth' element={<Otpauth/>}></Route>
-      <Route exact path='/points/Scratch' element={<ScratchCard/>}></Route>
-      <Route exact path='/points/GiftCards' element={<GiftCard/>}></Route>
-      <Route exact path='/transactionhistory' element={<Transactionhistory/>}></Route>
-
-      
-      
-     
-      
-      </Routes>
-    </BrowserRouter>
-    </UserContext.Provider>
-    <Chatbot/>
+      <BrowserRouter>
+        <Navbar user={user} />
+        <Routes>
+        <Route exact path="/" element={<Home />} />
+          <Route exact path="/profile" element={<ProtectedRoute element={Profile} pageName="Profile" />} />
+          <Route exact path="/erupi" element={<ProtectedRoute element={Erupi} pageName="Erupi" />} />
+          <Route exact path="/rewards" element={<ProtectedRoute element={Rewards} pageName="Rewards" />} />
+          <Route exact path="/cashback" element={<ProtectedRoute element={Cashback} pageName="Cashback" />} />
+          <Route exact path="/offer" element={<ProtectedRoute element={Offer} pageName="Offer" />} />
+          <Route exact path="/payment" element={<ProtectedRoute element={Payments} pageName="Payment" />} />
+          <Route exact path="/points/Scratch" element={<ProtectedRoute element={ScratchCard} pageName="Scratch Card" />} />
+          <Route exact path="/points/GiftCards" element={<ProtectedRoute element={GiftCard} pageName="Gift Cards" />} />
+          <Route exact path="/transactionhistory" element={<ProtectedRoute element={Transactionhistory} pageName="Transaction History" />} />
+          <Route exact path="/converter" element={<Converter />} />
+          <Route exact path="/news" element={<News />} />
+          <Route exact path="/stock" element={<Stock />} />
+          <Route exact path="/newsitems" element={<NewsItems />} />
+          <Route exact path="/points" element={<Points />} />
+          <Route exact path="/referral" element={<Referral />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/contact" element={<Contact />} />
+          <Route exact path="/signup" element={<Signup />} />
+          <Route exact path="*" element={<Errorpage />} />        
+        </Routes>
+      </BrowserRouter>
+      <Chatbot />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

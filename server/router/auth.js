@@ -13,6 +13,29 @@ router.get('/', (req, res) => {
   res.send(`Hello world from the server router js`);
 });
 
+router.post('/checkAccountNoAndPin', authenticate, async (req, res) => {
+  try {
+    const { accountno, pin } = req.body;
+    const user = req.rootUser;
+
+    if (!user) {
+      return res.status(400).json({ error: 'User not found' });
+    }
+
+    if (user.accountno === 0) {
+      return res.status(400).json({ error: 'Please provide your account number' });
+    }
+
+    if (!user.pin) {
+      return res.status(400).json({ error: 'Please set your PIN' });
+    }
+
+    res.status(200).json({ message: 'Account number and PIN checked successfully' });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 
 
 router.post('/transaction', authenticate, async (req, res) => {
@@ -66,13 +89,81 @@ router.post('/transaction', authenticate, async (req, res) => {
 });
 
 
+
+// Update user's PIN
+router.put('/updatePin', authenticate, async (req, res) => {
+  try {
+    const { pin } = req.body;
+    const user = req.rootUser;
+
+    // Update user's PIN
+    user.pin = pin;
+    await user.save();
+
+    res.status(200).json({ message: 'PIN updated successfully' });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Update user's Account Number
+router.put('/updateAccountno', authenticate, async (req, res) => {
+  try {
+    const { accountno } = req.body;
+    const user = req.rootUser;
+
+    // Update user's Account Number
+    user.accountno = accountno;
+    await user.save();
+
+    res.status(200).json({ message: 'Account Number updated successfully' });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+
+
+
+
+// API to find transactions for a user
+router.get('/findTransaction', authenticate, async (req, res) => {
+  try {
+    const accountno = req.rootUser.accountno;
+
+    // Check if accountno is 0
+    if (accountno === 0) {
+      return res.status(400).json({ error: 'Please provide your account Number on the profile page' });
+    }
+
+    // Find transactions where senderAccountno or receiverAccountno matches the user's accountno
+    const transactions = await Transaction.find({
+      $or: [
+        { senderAccountno: accountno },
+        { receiverAccountno: accountno }
+      ]
+    });
+
+    res.status(200).json(transactions);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+
+
+
+
 // using promises  
 
 router.post('/register', (req, res) => {
 
-    const { name, email, phone, work, password, cpassword,accountno,pin,balance} = req.body;
+    const { name, email, phone, password, cpassword} = req.body;
     
-    if (!name || !email || !phone || !work || !password || !cpassword || !accountno || !pin || !balance) {
+    if (!name || !email || !phone || !password || !cpassword) {
         return res.status(422).json({ error: "Plz filled the field properly" });
     }
 
@@ -82,7 +173,7 @@ router.post('/register', (req, res) => {
                 return res.status(422).json({ error: "Email already Exists" });
             }
             
-            const user = new User({ name, email, phone, work, password, cpassword,accountno,pin,balance });
+            const user = new User({ name, email, phone, password, cpassword });
 
             user.save().then(() => {
                 res.status(201).json({ message: "user registered successfuly" });
@@ -90,53 +181,21 @@ router.post('/register', (req, res) => {
             
         }).catch(err => { console.log(err); });
 
-        User.findOne({ accountno: accountno })
-        .then((userExist) => {
-            if (userExist) {
-                return res.status(422).json({ error: "Account Number already Exists" });
-            }
+        // User.findOne({ accountno: accountno })
+        // .then((userExist) => {
+        //     if (userExist) {
+        //         return res.status(422).json({ error: "Account Number already Exists" });
+        //     }
             
-            const user = new User({ name, email, phone, work, password, cpassword,accountno,pin,balance });
+        //     const user = new User({ name, email, phone, password, cpassword });
 
-            user.save().then(() => {
-                res.status(201).json({ message: "user registered successfuly" });
-            }).catch((err) => {console.log(err); return res.status(500).json({ error: "User registration failed!" })});
+        //     user.save().then(() => {
+        //         res.status(201).json({ message: "user registered successfuly" });
+        //     }).catch((err) => {console.log(err); return res.status(500).json({ error: "User registration failed!" })});
             
-        }).catch(err => { console.log(err); });
+        // }).catch(err => { console.log(err); });
 
 });
-
-// Async-Await 
-
-// router.post('/register', async (req, res) => {
-
-//     const { name, email, phone, work, password, cpassword, accountno ,pin ,balance } = req.body;
-    
-//     if (!name || !email || !phone || !work || !password || !cpassword) {
-//         return res.status(422).json({ error: "Plz filled the field properly" });
-//     }
-
-//     try {
-
-//         const userExist = await User.findOne({ email: email });
-
-//         if (userExist) {
-//              return res.status(422).json({ error: "Email already Exist" });
-//         } else if (password != cpassword) {
-//              return res.status(422).json({ error: "password are not matching" });
-//         } else {
-//              const user = new User({ name, email, phone, work, password, cpassword ,accountno,pin,balance});
-//             // yeha pe 
-//             await user.save();
-//             res.status(201).json({ message: "user registered successfuly" });
-//         }
-        
-  
-//     } catch (err) {
-//         console.log(err);
-//     }
-
-// });
 
 // login route 
 
