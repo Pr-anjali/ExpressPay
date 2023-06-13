@@ -2,24 +2,23 @@ import React, { useState } from 'react';
 import '../styles/PointsPage.css'; // Import the CSS file for styling
 import scratchCardImage from '../images/scratch card.jpeg';
 import giftCardImage from '../images/gift card.png';
-import cashbackPointsImage from '../images/cashback points.png';
 import merchantVoucherImage from '../images/merchant loyalty.png';
 import brandVoucherImage from '../images/brand loyalty.png';
-import ScratchCard from './Scratch.js';
 import {Link} from 'react-router-dom';
 const PointsPage = () => {
+  // eslint-disable-next-line
   const [points, setPoints] = useState(0);
-  const [vouchers, setVouchers] = useState([]);
+  //const [vouchers, setVouchers] = useState([]);
 
-  const earnPoints = (pointsEarned) => {
-    setPoints(points + pointsEarned);
+  // const earnPoints = (pointsEarned) => {
+  //   setPoints(points + pointsEarned);
 
-    if (points + pointsEarned >= 1000) {
-      setVouchers([...vouchers, 'Gift Card (300 INR)']);
-    } else if (points + pointsEarned >= 500) {
-      setVouchers([...vouchers, 'Gift Card (100 INR)']);
-    }
-  };
+  //   if (points + pointsEarned >= 1000) {
+  //     setVouchers([...vouchers, 'Gift Card (300 INR)']);
+  //   } else if (points + pointsEarned >= 500) {
+  //     setVouchers([...vouchers, 'Gift Card (100 INR)']);
+  //   }
+  // };
 
   return (
     <div className="container">

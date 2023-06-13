@@ -15,10 +15,6 @@ const userSchema = new mongooose.Schema({
         type: Number,
         required: true
     },
-    work: {
-        type: String,
-        required: true
-    },
     password: {
         type: String,
         required: true
@@ -61,15 +57,15 @@ const userSchema = new mongooose.Schema({
     ],
     accountno: {
         type: Number,
-        required: true
+        default: 0
     },
     pin: {
         type: String,
-        required: true
+        default: ""
     },
     balance: {
         type: Number,
-        default: 0
+        default: 2000
     }
 });
 

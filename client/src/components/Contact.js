@@ -4,31 +4,31 @@ const Contact = () => {
 
     const [userData, setUserData] = useState({name:"", email:"", phone:"", message:""});
    
-    const userContact = async () => {
-        try {
-            const res = await fetch('/getdata', {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-            });
-
-            const data = await res.json();
-            console.log(data);
-            
-            setUserData({...userData, name:data.name, email:data.email, phone:data.phone });
-
-            if (!res.status === 200) {
-                const error = new Error(res.error);
-                throw error;
-            }
-
-        } catch (err) {
-            console.log(err);
-        }
-    }
-
+    
     useEffect(() => {
+        const userContact = async () => {
+            try {
+                const res = await fetch('/getdata', {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                });
+    
+                const data = await res.json();
+                console.log(data);
+                
+                setUserData({...userData, name:data.name, email:data.email, phone:data.phone });
+    
+                if (!res.status === 200) {
+                    const error = new Error(res.error);
+                    throw error;
+                }
+    
+            } catch (err) {
+                console.log(err);
+            }
+        }
         userContact();
     }, []);
 

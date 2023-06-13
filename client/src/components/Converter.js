@@ -21,10 +21,7 @@ function Converter() {
 
   useEffect(() => {
     if (!!rates) {
-      function init() {
-        handleAmount1Change(1);
-      }
-      init();
+      handleAmount1Change(1);
     }
   }, [rates]);
 

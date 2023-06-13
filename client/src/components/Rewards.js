@@ -1,6 +1,6 @@
 import React from 'react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import cashbackImage from '../images/cashback2.png';
 import pointsImage from '../images/coin.png';
 import referralImage from '../images/referral.png';
@@ -33,7 +33,7 @@ const Rewards = () => {
     <div>
        
          <div className="col-lg-10 offset-lg-1">
-       <h2 className='form-title'> <span class="align-middle">Rewards </span></h2>
+       <h2 className='form-title'> <span className="align-middle">Rewards </span></h2>
        </div>
       <TransitionGroup className="rewards-container">
         {rewards.map(reward => (

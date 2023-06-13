@@ -8,39 +8,32 @@ const Stock = () => {
   const [selectedStockName, setSelectedStockName] = useState('IBM United States'); // Added state variable
   const [isLoading, setIsLoading] = useState(false);
 
-  const fetchStock = async () => {
-    const API_KEY = 'U9A3Y7LVCUKPS2C7';
-
-    try {
-      setIsLoading(true); // Show the loader
-      const response = await fetch(
-        `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${selectedStockSymbol}&outputsize=compact&apikey=${API_KEY}`
-      );
-      const data = await response.json();
-      const timeSeriesData = data['Time Series (Daily)'];
-      const extractedDates = Object.keys(timeSeriesData);
-      const extractedOpenValues = extractedDates.map(
-        (date) => timeSeriesData[date]['1. open']
-      );
-      setStockChartXValues(extractedDates);
-      setStockChartYValues(extractedOpenValues);
-      setIsLoading(false); // Hide the loader
-    } catch (error) {
-      console.error(error);
-      setIsLoading(false); // Hide the loader
-    }
-  };
-
+  
   useEffect(() => {
-    if (selectedStockSymbol) {
-      fetchStock();
-    }
-  }, [selectedStockSymbol]);
-
-  useEffect(() => {
-    // Run on initial load of window
+    const fetchStock = async () => {
+      const API_KEY = 'U9A3Y7LVCUKPS2C7';
+  
+      try {
+        setIsLoading(true); // Show the loader
+        const response = await fetch(
+          `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${selectedStockSymbol}&outputsize=compact&apikey=${API_KEY}`
+        );
+        const data = await response.json();
+        const timeSeriesData = data['Time Series (Daily)'];
+        const extractedDates = Object.keys(timeSeriesData);
+        const extractedOpenValues = extractedDates.map(
+          (date) => timeSeriesData[date]['1. open']
+        );
+        setStockChartXValues(extractedDates);
+        setStockChartYValues(extractedOpenValues);
+        setIsLoading(false); // Hide the loader
+      } catch (error) {
+        console.error(error);
+        setIsLoading(false); // Hide the loader
+      }
+    };
     fetchStock();
-  }, []);
+  }, [selectedStockSymbol]);
 
   const handleStockSymbolChange = (event) => {
     const selectedSymbol = event.target.value;

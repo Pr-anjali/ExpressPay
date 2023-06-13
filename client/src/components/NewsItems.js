@@ -13,7 +13,7 @@ export class NewsItems extends Component{
                         <h5 className="card-title">{title}...</h5>
                         <p className="card-text">{description}...</p>
                         <div className="contact_form_button">
-                        <a href={newsUrl} target="_blank" style={{textDecoration: 'none'}}  className="button contact_submit_button ">Read More</a>
+                        <a href={newsUrl} target="_blank" rel="noreferrer" style={{textDecoration: 'none'}}  className="button contact_submit_button ">Read More</a>
                         </div>
                     </div>
                 </div>
