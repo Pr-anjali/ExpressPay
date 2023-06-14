@@ -13,9 +13,76 @@ import netflixImage from '../images/netflix.png';
 import spotifyImage from '../images/spotify.png';
 
 const PaymentPage = () => {
-  return (
-    <div className="container payment-container">
+  // return (
+  //   <div className="container payment-container">
       
+  //     <section>
+  //       <h2>Recharge</h2>
+  //       <div className="cards-container">
+  //         <div className="card">
+  //           <img src={mobileRechargeImage} alt="Mobile Recharge" />
+  //           <h3>Mobile Recharge</h3>
+  //         </div>
+  //         <div className="card">
+  //           <img src={dthRechargeImage} alt="DTH Recharge" />
+  //           <h3>DTH Recharge</h3>
+  //         </div>
+  //         <div className="card">
+  //           <img src={ottImage} alt="OTT" />
+  //           <h3>OTT</h3>
+  //         </div>
+  //         <div className="card">
+  //           <img src={cableTvImage} alt="Cable TV" />
+  //           <h3>Cable TV</h3>
+  //         </div>
+  //       </div>
+  //     </section>
+  //     <section>
+  //       <h2>Home Bills</h2>
+  //       <div className="cards-container">
+  //         <div className="card">
+  //           <img src={electricityImage} alt="Electricity" />
+  //           <h3>Electricity</h3>
+  //         </div>
+  //         <div className="card">
+  //           <img src={rentImage} alt="Rent" />
+  //           <h3>Rent</h3>
+  //         </div>
+  //         <div className="card">
+  //           <img src={educationFeesImage} alt="Education Fees" />
+  //           <h3>Education Fees</h3>
+  //         </div>
+  //       </div>
+  //     </section>
+  //     <section>
+  //       <h2>Subscription</h2>
+  //       <div className="cards-container">
+  //         <div className="card">
+  //           <img src={disneyHotstarImage} alt="Disney+ Hotstar" />
+  //           <h3>Disney+ Hotstar</h3>
+  //         </div>
+  //         <div className="card">
+  //           <img src={amazonPrimeImage} alt="Amazon Prime" />
+  //           <h3>Amazon Prime</h3>
+  //         </div>
+  //         <div className="card">
+  //           <img src={netflixImage} alt="Netflix" />
+  //           <h3>Netflix</h3>
+  //         </div>
+  //         <div className="card">
+  //           <img src={spotifyImage} alt="Spotify" />
+  //           <h3>Spotify</h3>
+  //         </div>
+  //       </div>
+  //     </section>
+  //   </div>
+  // );
+
+
+
+
+  return (
+    <div className="container-fluid payment-container">
       <section>
         <h2>Recharge</h2>
         <div className="cards-container">
