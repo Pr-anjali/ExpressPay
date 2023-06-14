@@ -64,15 +64,21 @@ const Referral = () => {
       </div>
       <br></br>
       <p className="sharep3">Share your referral code with friends:</p>
+      <div className="contact_form_button">
+                                    <a href={`https://example.com/referral/${referralCode}`} className="copylink">
+        {`https://example.com/referral/${referralCode}`}
+      </a>
+      <span/> <span/> <span/> <span/> <span/> <span/> <span/> <span/> <span/> <span/> <span/> <span/> <span/> <span/>
+      <button onClick={handleCopy} className="contact_button">{isCopied ? 'Copied!' : 'Copy'}</button>
+      
+      </div>
       <input
         type="text"
         value={referralCode}
         onChange={(e) => setReferralCode(e.target.value)}
       />
-      <button onClick={handleCopy} className="copy">{isCopied ? 'Copied!' : 'Copy'}</button>
-      <a href={`https://example.com/referral/${referralCode}`} className="copylink">
-        {`https://example.com/referral/${referralCode}`}
-      </a>
+      
+                                    
       </div>
       
     </div>

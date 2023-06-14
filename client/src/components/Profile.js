@@ -86,7 +86,10 @@ const Profile = () => {
         return navigate('/erupi')
     }
   };
-
+   
+  const handleExpressWalletClick = () => {
+    window.location.href = 'https://master--stupendous-alfajores-fe87b7.netlify.app/';
+  }
 
     const loadScript = (src) => {
         return new Promise((resolve) => {
@@ -279,12 +282,16 @@ const Profile = () => {
       <div className="contact_form_button mx-3">
         <button className="contact_button" onClick={() => handleERupiClick()}>e-RUPI Transaction</button>
       </div>
-      <div className="contact_form_button ml-3">
+      <div className="contact_form_button mx-3">
         <button className="contact_button" onClick={() => CurrencyConverter()}>Currency Converter</button>
+      </div>
+      <div className="contact_form_button ml-3">
+        <button className="contact_button" onClick={() => handleExpressWalletClick()}>Express Wallet</button>
       </div>
     </div>
   </div>
 </div>
+
         <PaymentsPage />
       </div>
      </>

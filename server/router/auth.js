@@ -25,19 +25,29 @@ router.post('/save-account-info', authenticate, async (req, res) => {
       return res.status(400).json({ error: 'User not found' });
     }
      
-    // Update user's account number and pin
-    user.accountno = accountNo;
-    user.pin = pin;
-    console.log(user.pin);
-    console.log(pin);
-    await user.save();
+    User.findOne({ accountno: accountNo })
+    .then((userExist) => {
+        if (userExist) {
+            return res.status(422).json({ error: "Account No. already exists" });
+        }
+        
+        user.accountno = accountNo;
+        user.pin = pin;
 
-    res.status(200).json({ message: 'Account number and pin saved successfully' });
-  } catch (err) {
+        user.save().then(() => {
+            res.status(201).json({ message: 'Account number and pin saved successfully' });
+        }).catch((err) => {console.log(err); return res.status(500).json({ error: "Something went wrong" })});
+        
+    }).catch(err => { console.log(err); });
+
+  }
+  catch{
     console.log(err);
     res.status(500).json({ error: 'Internal server error' });
   }
-});
+
+   
+  });
 
 // ...
 
@@ -95,40 +105,6 @@ router.post('/transaction', authenticate, async (req, res) => {
 });
 
 
-
-// Update user's PIN
-router.put('/updatePin', authenticate, async (req, res) => {
-  try {
-    const { pin } = req.body;
-    const user = req.rootUser;
-
-    // Update user's PIN
-    user.pin = pin;
-    await user.save();
-
-    res.status(200).json({ message: 'PIN updated successfully' });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
-
-// Update user's Account Number
-router.put('/updateAccountno', authenticate, async (req, res) => {
-  try {
-    const { accountno } = req.body;
-    const user = req.rootUser;
-
-    // Update user's Account Number
-    user.accountno = accountno;
-    await user.save();
-
-    res.status(200).json({ message: 'Account Number updated successfully' });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
 
 
 
