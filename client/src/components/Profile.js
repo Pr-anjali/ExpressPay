@@ -287,9 +287,7 @@ const Profile = () => {
 </div>
         <PaymentsPage />
       </div>
-     
-      <PaymentsPage />
-    </div>
+     </>
   );
   
 };
