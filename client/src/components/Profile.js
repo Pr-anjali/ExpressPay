@@ -270,17 +270,21 @@ const Profile = () => {
             </div>
           </div>
         </form>
-        <div className="buttons">
-          <button onClick={() => Razorpayaay(2321)}>Digital Transaction</button>
-        </div>
-        <br></br>
-        <div className="buttons">
-          <button onClick={() => handleERupiClick()}>e-RUPI Transaction</button>
-        </div>
-        <br></br>
-        <div className="buttons">
-          <button onClick={() => CurrencyConverter()}>Currency Converter</button>
-        </div>
+        <div className="row">
+  <div className="col-md-12">
+    <div className="d-flex justify-content-center">
+      <div className="contact_form_button mr-3">
+        <button className="contact_button" onClick={() => Razorpayaay(2321)}>Digital Transaction</button>
+      </div>
+      <div className="contact_form_button mx-3">
+        <button className="contact_button" onClick={() => handleERupiClick()}>e-RUPI Transaction</button>
+      </div>
+      <div className="contact_form_button ml-3">
+        <button className="contact_button" onClick={() => CurrencyConverter()}>Currency Converter</button>
+      </div>
+    </div>
+  </div>
+</div>
         <PaymentsPage />
       </div>
     </>
