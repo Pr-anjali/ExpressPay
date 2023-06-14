@@ -287,8 +287,11 @@ const Profile = () => {
 </div>
         <PaymentsPage />
       </div>
-    </>
+     
+      <PaymentsPage />
+    </div>
   );
+  
 };
 
 export default Profile;
