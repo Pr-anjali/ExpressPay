@@ -144,11 +144,13 @@ const Erupi = () => {
         <p>Email: {userData.email}</p>
         <p>Account Number: {userData.accountno}</p>
         <p>Balance: {userData.balance}</p>
-        <button className="contact_button" onClick={handleViewTransactions}>
+        <div className='text-center'>
+        <button className="text-center contact_button" onClick={handleViewTransactions}>
           Transaction History
         </button>
+        </div>
       </div>
-
+      <br/>
       <h2>Transaction Details</h2>
       <div className="amount-images-container">
         <div className="rupee-notes">

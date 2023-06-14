@@ -66,7 +66,9 @@ const Profile = () => {
             // Handle error
         }
     };
-
+    const CurrencyConverter = () => {
+      return navigate('/converter');
+    }
   const handleERupiClick = () => {
     if (!userData.accountno || userData.pin === '') {
       // Prompt the user to enter their account number and pin
