@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/Voucher.css';
 import voucherImage from '../images/voucher.png';
+import axios from 'axios';
 
 const Voucher = () => {
   const [receiverName, setReceiverName] = useState('');
@@ -12,6 +13,36 @@ const Voucher = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission
+    var data = JSON.stringify({
+      "type": "DISCOUNT_VOUCHER",
+      "discount": {
+        "amount_off": "2000",
+        "type": "AMOUNT"
+      },
+      "redemption": {
+        "quantity": 1
+      },
+      "metadata": {}
+    });
+
+    var config = {
+      method: 'post',
+      url: 'https://as1.api.voucherify.io/v1/vouchers/366375b3-50f0-47e4-8772-b6e279bb2a7c',
+      headers: {
+        'X-App-Id': '75ed398e-2e66-4c03-a1cd-bd2b7683ab53',
+        'X-App-Token': 'eee6eebb-9855-4bb9-9eaa-b1edbbaac064',
+        'Content-Type': 'application/json'
+      },
+      data: data
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   return (
@@ -65,7 +96,7 @@ const Voucher = () => {
               required
             />
           </div>
-          <button type="submit" className="voucher-submit-btn">Submit</button>
+          <button type="submit" className="voucher-submit-btn" onSubmit={handleSubmit}>Submit</button>
         </form>
       </div>
       <img src={voucherImage} alt="Voucher" className="voucher-image" />
