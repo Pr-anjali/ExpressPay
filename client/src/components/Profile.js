@@ -86,7 +86,10 @@ const Profile = () => {
         return navigate('/erupi')
     }
   };
-
+   
+  const handleExpressWalletClick = () => {
+    window.location.href = 'https://master--stupendous-alfajores-fe87b7.netlify.app/';
+  }
 
     const loadScript = (src) => {
         return new Promise((resolve) => {
@@ -134,307 +137,164 @@ const Profile = () => {
         paymentObject.open();
     };
 
-  //   return (
-  //       <>
-  //           <div className="container emp-profile">
-  //               <form method="GET">
-  //                   <div className="row">
-  //                       <div className="col-md-4">
-  //                           <div className="profile-img">
-  //                               <img src={aboutpic} alt="aboutPic" />
-  //                           </div>
-  //                       </div>
+    return (
+        <>
+            <div className="container emp-profile">
+                <form method="GET">
+                    <div className="row">
+                        <div className="col-md-4">
+                            <div className="profile-img">
+                                <img src={aboutpic} alt="aboutPic" />
+                            </div>
+                        </div>
 
-  //                       <div className="col-md-6">
-  //                           <div className="profile-head">
-  //                               <h5>{userData.name}</h5>
-  //                               <p className="profile-rating mt-3 mb-5">RANKINGS: <span> 1/10 </span></p>
+                        <div className="col-md-6">
+                            <div className="profile-head">
+                                <h5>{userData.name}</h5>
+                                <p className="profile-rating mt-3 mb-5">RANKINGS: <span> 1/10 </span></p>
 
-  //                               <ul className="nav nav-tabs" role="tablist">
-  //                                   <li className="nav-item">
-  //                                       <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
-  //                                   </li>
-  //                                   <li className="nav-item">
-  //                                       <a className="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
-  //                                   </li>
-  //                               </ul>
-  //                           </div>
-  //                       </div>
+                                <ul className="nav nav-tabs" role="tablist">
+                                    <li className="nav-item">
+                                        <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                    </li>
+                                    <li className="nav-item">
+                                        <a className="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
 
-  //                       <div className="col-md-2">
-  //                           <input type="submit" className="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
-  //                       </div>
-  //                   </div>
+                        <div className="col-md-2">
+                            <input type="submit" className="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
+                        </div>
+                    </div>
 
-  //                   <div className="row">
-  //                       {/* left side url  */}
-  //                       <div className="col-md-4">
-  //                           <div className="profile-work">
-  //                               <a>Software Engineer</a> <br />
-  //                               <a>Instagram</a> <br />
-  //                               <a>Facebook</a> <br />
-  //                               <a>Web Developer</a> <br />
-  //                               <a>Projects</a> <br />
-  //                               <a>The Code Fabs</a> <br />
-  //                           </div>
-  //                       </div>
+                    <div className="row">
+                        {/* left side url  */}
+                        <div className="col-md-4">
+                            <div className="profile-work">
+                                <a>Software Engineer</a> <br />
+                                <a>Instagram</a> <br />
+                                <a>Facebook</a> <br />
+                                <a>Web Developer</a> <br />
+                                <a>Projects</a> <br />
+                                <a>The Code Fabs</a> <br />
+                            </div>
+                        </div>
 
-  //           {/* right side data toogle  */}
-  //           <div className="col-md-8 pl-5 about-info">
-  //             <div className="tab-content profile-tab" id="myTabContent">
-  //               <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-  //                 <div className="row">
-  //                   <div className="col-md-6">
-  //                     <div>User Id</div>
-  //                   </div>
-  //                   <div className="col-md-6">
-  //                     <p>787865454546</p>
-  //                   </div>
-  //                 </div>
-  //                 <div className="row mt-3">
-  //                   <div className="col-md-6">
-  //                     <div>Name</div>
-  //                   </div>
-  //                   <div className="col-md-6 ">
-  //                     <p>{userData.name}</p>
-  //                   </div>
-  //                 </div>
-  //                 <div className="row mt-3">
-  //                   <div className="col-md-6">
-  //                     <div>Email</div>
-  //                   </div>
-  //                   <div className="col-md-6">
-  //                     <p>{userData.email}</p>
-  //                   </div>
-  //                 </div>
-  //                 <div className="row mt-3">
-  //                   <div className="col-md-6">
-  //                     <div>Phone</div>
-  //                   </div>
-  //                   <div className="col-md-6">
-  //                     <p>{userData.phone}</p>
-  //                   </div>
-  //                 </div>
-  //                 <div className="row mt-3">
-  //                   <div className="col-md-6">
-  //                     <div>Profession</div>
-  //                   </div>
-  //                   <div className="col-md-6">
-  //                     <p>Web Developer</p>
-  //                   </div>
-  //                 </div>
-  //               </div>
-  //               <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-  //                 <div className="row">
-  //                   <div className="col-md-6">
-  //                     <div>Experience</div>
-  //                   </div>
-  //                   <div className="col-md-6">
-  //                     <p>Expert</p>
-  //                   </div>
-  //                 </div>
-  //                 <div className="row mt-3">
-  //                   <div className="col-md-6">
-  //                     <div>Hourly Rate</div>
-  //                   </div>
-  //                   <div className="col-md-6">
-  //                     <p>10$/hr</p>
-  //                   </div>
-  //                 </div>
-  //                 <div className="row mt-3">
-  //                   <div className="col-md-6">
-  //                     <div>Total Projects</div>
-  //                   </div>
-  //                   <div className="col-md-6">
-  //                     <p>230</p>
-  //                   </div>
-  //                 </div>
-  //                 <div className="row mt-3">
-  //                   <div className="col-md-6">
-  //                     <div>English Level</div>
-  //                   </div>
-  //                   <div className="col-md-6">
-  //                     <p>Expert</p>
-  //                   </div>
-  //                 </div>
-  //                 <div className="row mt-3">
-  //                   <div className="col-md-6">
-  //                     <div>Availability</div>
-  //                   </div>
-  //                   <div className="col-md-6">
-  //                     <p>6 months</p>
-  //                   </div>
-  //                 </div>
-  //               </div>
-  //             </div>
-  //           </div>
-  //         </div>
-  //       </form>
-  //       <div className="buttons">
-  //         <button onClick={() => Razorpayaay(2321)}>Digital Transaction</button>
-  //       </div>
-  //       <br></br>
-  //       <div className="buttons">
-  //         <button onClick={() => handleERupiClick()}>e-RUPI Transaction</button>
-  //       </div>
-  //       <br></br>
-  //       <div className="buttons">
-  //         <button onClick={() => CurrencyConverter()}>Currency Converter</button>
-  //       </div>
-  //       <PaymentsPage />
-  //     </div>
-  //   </>
-  // );
-
-  return (
-    <div className="container-fluid emp-profile">
-      <form method="GET">
-        <div className="row">
-          <div className="col-md-4">
-            <div className="profile-img">
-              <img src={aboutpic} alt="aboutPic" />
-            </div>
-          </div>
-  
-          <div className="col-md-6">
-            <div className="profile-head">
-              <h5>{userData.name}</h5>
-              <p className="profile-rating mt-3 mb-5">RANKINGS: <span>1/10</span></p>
-  
-              <ul className="nav nav-tabs" role="tablist">
-                <li className="nav-item">
-                  <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-  
-          <div className="col-md-2">
-            <input type="submit" className="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
-          </div>
-        </div>
-  
-        <div className="row">
-          <div className="col-md-4">
-            <div className="profile-work">
-              <a>Software Engineer</a> <br />
-              <a>Instagram</a> <br />
-              <a>Facebook</a> <br />
-              <a>Web Developer</a> <br />
-              <a>Projects</a> <br />
-              <a>The Code Fabs</a> <br />
-            </div>
-          </div>
-  
-          <div className="col-md-8 pl-5 about-info">
-            <div className="tab-content profile-tab" id="myTabContent">
-              <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                <div className="row">
-                  <div className="col-md-6">
-                    <div>User Id</div>
+            {/* right side data toogle  */}
+            <div className="col-md-8 pl-5 about-info">
+              <div className="tab-content profile-tab" id="myTabContent">
+                <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                  <div className="row">
+                    <div className="col-md-6">
+                      <div>User Id</div>
+                    </div>
+                    <div className="col-md-6">
+                      <p>787865454546</p>
+                    </div>
                   </div>
-                  <div className="col-md-6">
-                    <p>787865454546</p>
+                  <div className="row mt-3">
+                    <div className="col-md-6">
+                      <div>Name</div>
+                    </div>
+                    <div className="col-md-6 ">
+                      <p>{userData.name}</p>
+                    </div>
+                  </div>
+                  <div className="row mt-3">
+                    <div className="col-md-6">
+                      <div>Email</div>
+                    </div>
+                    <div className="col-md-6">
+                      <p>{userData.email}</p>
+                    </div>
+                  </div>
+                  <div className="row mt-3">
+                    <div className="col-md-6">
+                      <div>Phone</div>
+                    </div>
+                    <div className="col-md-6">
+                      <p>{userData.phone}</p>
+                    </div>
+                  </div>
+                  <div className="row mt-3">
+                    <div className="col-md-6">
+                      <div>Profession</div>
+                    </div>
+                    <div className="col-md-6">
+                      <p>Web Developer</p>
+                    </div>
                   </div>
                 </div>
-                <div className="row mt-3">
-                  <div className="col-md-6">
-                    <div>Name</div>
+                <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                  <div className="row">
+                    <div className="col-md-6">
+                      <div>Experience</div>
+                    </div>
+                    <div className="col-md-6">
+                      <p>Expert</p>
+                    </div>
                   </div>
-                  <div className="col-md-6">
-                    <p>{userData.name}</p>
+                  <div className="row mt-3">
+                    <div className="col-md-6">
+                      <div>Hourly Rate</div>
+                    </div>
+                    <div className="col-md-6">
+                      <p>10$/hr</p>
+                    </div>
                   </div>
-                </div>
-                <div className="row mt-3">
-                  <div className="col-md-6">
-                    <div>Email</div>
+                  <div className="row mt-3">
+                    <div className="col-md-6">
+                      <div>Total Projects</div>
+                    </div>
+                    <div className="col-md-6">
+                      <p>230</p>
+                    </div>
                   </div>
-                  <div className="col-md-6">
-                    <p>{userData.email}</p>
+                  <div className="row mt-3">
+                    <div className="col-md-6">
+                      <div>English Level</div>
+                    </div>
+                    <div className="col-md-6">
+                      <p>Expert</p>
+                    </div>
                   </div>
-                </div>
-                <div className="row mt-3">
-                  <div className="col-md-6">
-                    <div>Phone</div>
-                  </div>
-                  <div className="col-md-6">
-                    <p>{userData.phone}</p>
-                  </div>
-                </div>
-                <div className="row mt-3">
-                  <div className="col-md-6">
-                    <div>Profession</div>
-                  </div>
-                  <div className="col-md-6">
-                    <p>Web Developer</p>
-                  </div>
-                </div>
-              </div>
-              <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                <div className="row">
-                  <div className="col-md-6">
-                    <div>Experience</div>
-                  </div>
-                  <div className="col-md-6">
-                    <p>Expert</p>
-                  </div>
-                </div>
-                <div className="row mt-3">
-                  <div className="col-md-6">
-                    <div>Hourly Rate</div>
-                  </div>
-                  <div className="col-md-6">
-                    <p>10$/hr</p>
-                  </div>
-                </div>
-                <div className="row mt-3">
-                  <div className="col-md-6">
-                    <div>Total Projects</div>
-                  </div>
-                  <div className="col-md-6">
-                    <p>230</p>
-                  </div>
-                </div>
-                <div className="row mt-3">
-                  <div className="col-md-6">
-                    <div>English Level</div>
-                  </div>
-                  <div className="col-md-6">
-                    <p>Expert</p>
-                  </div>
-                </div>
-                <div className="row mt-3">
-                  <div className="col-md-6">
-                    <div>Availability</div>
-                  </div>
-                  <div className="col-md-6">
-                    <p>6 months</p>
+                  <div className="row mt-3">
+                    <div className="col-md-6">
+                      <div>Availability</div>
+                    </div>
+                    <div className="col-md-6">
+                      <p>6 months</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </form>
-      <div class="button3together">
-      <div className="buttons">
-        <button className="btn btn-primary" onClick={() => Razorpayaay(2321)}>Digital Transaction</button>
+        </form>
+        <div className="row">
+  <div className="col-md-12">
+    <div className="d-flex justify-content-center">
+      <div className="contact_form_button mr-3">
+        <button className="contact_button" onClick={() => Razorpayaay(2321)}>Digital Transaction</button>
       </div>
-      <br></br>
-      <div className="buttons">
-        <button className="btn btn-primary" onClick={() => handleERupiClick()}>e-RUPI Transaction</button>
+      <div className="contact_form_button mx-3">
+        <button className="contact_button" onClick={() => handleERupiClick()}>e-RUPI Transaction</button>
       </div>
-      <br></br>
-      <div className="buttons">
-        <button className="btn btn-primary" onClick={() => CurrencyConverter()}>Currency Converter</button>
+      <div className="contact_form_button mx-3">
+        <button className="contact_button" onClick={() => CurrencyConverter()}>Currency Converter</button>
       </div>
+      <div className="contact_form_button ml-3">
+        <button className="contact_button" onClick={() => handleExpressWalletClick()}>Express Wallet</button>
       </div>
-     
-      <PaymentsPage />
     </div>
+  </div>
+</div>
+
+        <PaymentsPage />
+      </div>
+     </>
   );
   
 };
