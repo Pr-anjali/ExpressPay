@@ -30,7 +30,7 @@ const Login = () => {
       dispatch(login({
         email: email,
         password: password,
-        loggedIn: true,
+        isLoggedin: true,
       }));
       navigate('/')
     }
