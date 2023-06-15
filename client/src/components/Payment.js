@@ -148,71 +148,71 @@ const PaymentPage = () => {
     <div className="container-fluid payment-container">
       <section>
         <h2>Recharge</h2>
-        <div className="cards-container">
-          <div className="card">
+        <div className="payment-cards-container">
+          <div className="payment-card">
             <img src={mobileRechargeImage} alt="Mobile Recharge" />
-            <h3>Mobile Recharge</h3>
-            <button className="card-button">Recharge Now</button>
+            <h4>Mobile Recharge</h4>
+            <button className="payment-card-button">Recharge Now</button>
           </div>
-          <div className="card">
+          <div className="payment-card">
             <img src={dthRechargeImage} alt="DTH Recharge" />
-            <h3>DTH Recharge</h3>
-            <button className="card-button">Recharge Now</button>
+            <h4>DTH Recharge</h4>
+            <button className="payment-card-button">Recharge Now</button>
           </div>
-          <div className="card">
+          <div className="payment-card">
             <img src={ottImage} alt="OTT" />
-            <h3>OTT</h3>
-            <button className="card-button">Subscribe Now</button>
+            <h4>OTT</h4>
+            <button className="payment-card-button">Subscribe Now</button>
           </div>
-          <div className="card">
+          <div className="payment-card">
             <img src={cableTvImage} alt="Cable TV" />
-            <h3>Cable TV</h3>
-            <button className="card-button">Subscribe Now</button>
+            <h4>Cable TV</h4>
+            <button className="payment-card-button">Subscribe Now</button>
           </div>
         </div>
       </section>
       <section>
         <h2>Home Bills</h2>
-        <div className="cards-container">
-          <div className="card">
+        <div className="payment-cards-container">
+          <div className="payment-card">
             <img src={electricityImage} alt="Electricity" />
-            <h3>Electricity</h3>
-            <button className="card-button">Pay Now</button>
+            <h4>Electricity</h4>
+            <button className="payment-card-button">Pay Now</button>
           </div>
-          <div className="card">
+          <div className="payment-card">
             <img src={rentImage} alt="Rent" />
-            <h3>Rent</h3>
-            <button className="card-button">Pay Now</button>
+            <h4>Rent</h4>
+            <button className="payment-card-button">Pay Now</button>
           </div>
-          <div className="card">
+          <div className="payment-card">
             <img src={educationFeesImage} alt="Education Fees" />
-            <h3>Education Fees</h3>
-            <button className="card-button">Pay Now</button>
+            <h4>Education Fees</h4>
+            <button className="payment-card-button">Pay Now</button>
           </div>
         </div>
       </section>
       <section>
         <h2>Subscription</h2>
-        <div className="cards-container">
-          <div className="card">
+        <div className="payment-cards-container">
+          <div className="payment-card">
             <img src={disneyHotstarImage} alt="Disney+ Hotstar" />
-            <h3>Disney+ Hotstar</h3>
-            <button className="card-button">Subscribe Now</button>
+            <h4>Disney+ Hotstar</h4>
+            <button className="payment-card-button">Subscribe Now</button>
           </div>
-          <div className="card">
+          <div className="payment-card">
             <img src={amazonPrimeImage} alt="Amazon Prime" />
-            <h3>Amazon Prime</h3>
-            <button className="card-button">Subscribe Now</button>
+            <h4>Amazon Prime</h4>
+            <button className="payment-card-button">Subscribe Now</button>
           </div>
-          <div className="card">
+          <div className="payment-card">
             <img src={netflixImage} alt="Netflix" />
-            <h3>Netflix</h3>
-            <button className="card-button">Subscribe Now</button>
+            <h4>Netflix</h4>
+            <button className="payment-card-button">Subscribe Now</button>
           </div>
-          <div className="card">
+          <div className="payment-card">
             <img src={spotifyImage} alt="Spotify" />
-            <h3>Spotify</h3>
-            <button className="card-button">Subscribe Now</button>
+            <h4>Spotify</h4>
+            <button className="payment-card-button">Subscribe Now</button>
           </div>
         </div>
       </section>
