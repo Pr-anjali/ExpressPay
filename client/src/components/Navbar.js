@@ -29,6 +29,19 @@ const Navbar = ({ user }) => {
       );
     }
   };
+  
+  const renderCommunityButton = () => {
+    if (user) {
+      return (
+        <li className="nav nav-item navbar navbar-light bg-light">
+          <Link className="nav-link" to="/community">Community</Link>
+        </li>
+      );
+    } else {
+      return (<></>
+      );
+    }
+  };
 
   const renderProfileButton = () => {
     if (user) {
@@ -98,6 +111,9 @@ const Navbar = ({ user }) => {
             <Link className="nav-link" to="/stock">Stocks</Link>
           </li>
           <li className="nav nav-item navbar navbar-light bg-light">
+          <li className="nav nav-item navbar navbar-light bg-light">
+            {renderCommunityButton()}
+          </li>
             {renderAuthButtons()}
           </li>
 

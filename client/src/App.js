@@ -24,10 +24,11 @@ import Payments from './components/Payment';
 import Erupi from './components/Erupi';
 import ScratchCard from './components/Scratch';
 import GiftCard from './components/GiftCards';
-import Voucher from './components/VoucherPage'
+
 import Transactionhistory from './components/Transactionhistory';
 import { useSelector } from 'react-redux';
 import { selectUser } from './features/userSlice';
+import Query from './components/Query';
 
 const App = () => {
   const user = useSelector(selectUser);
@@ -53,7 +54,7 @@ const App = () => {
           <Route exact path="/offer" element={<ProtectedRoute element={Offer} pageName="Offer" />} />
           <Route exact path="/payment" element={<ProtectedRoute element={Payments} pageName="Payment" />} />
           <Route exact path="/points/Scratch" element={<ProtectedRoute element={ScratchCard} pageName="Scratch Card" />} />
-          <Route exact path="/voucher" element={<ProtectedRoute element={Voucher} pageName="Voucher" />} />
+         
           <Route exact path="/points/GiftCards" element={<ProtectedRoute element={GiftCard} pageName="Gift Cards" />} />
           <Route exact path="/transactionhistory" element={<ProtectedRoute element={Transactionhistory} pageName="Transaction History" />} />
           <Route exact path="/converter" element={<Converter />} />
@@ -65,6 +66,7 @@ const App = () => {
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/contact" element={<Contact />} />
           <Route exact path="/signup" element={<Signup />} />
+          <Route exact path="/community" element={<Query user={user}/>} />
           <Route exact path="*" element={<Errorpage />} />        
         </Routes>
       </BrowserRouter>
