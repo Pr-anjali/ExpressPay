@@ -108,7 +108,9 @@ const Profile = () => {
         });
     };
 
-
+    const handleeRUPIVoucher = () => {
+      return navigate('/voucher');
+    }
 
     const Razorpayaay = async (paise) => {
         const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js');
@@ -274,23 +276,27 @@ const Profile = () => {
           </div>
         </form>
         <div className="row">
-  <div className="col-md-12">
-    <div className="d-flex justify-content-center">
-      <div className="contact_form_button mr-3">
-        <button className="contact_button" onClick={() => Razorpayaay(2321)}>Digital Transaction</button>
+        <div className="col-md-12">
+          <div className="d-flex justify-content-center">
+            <div className="contact_form_button mx-3">
+              <button className="contact_button" onClick={() => Razorpayaay(2321)}>Digital Transaction</button>
+            </div>
+            <div className="contact_form_button mx-3">
+              <button className="contact_button" onClick={() => handleERupiClick()}>Direct Transfer</button>
+            </div>
+            <div className="contact_form_button mx-3">
+              <button className="contact_button" onClick={() => CurrencyConverter()}>Currency Converter</button>
+            </div>
+            <div className="contact_form_button mx-3">
+              <button className="contact_button" onClick={() => handleExpressWalletClick()}>Express Wallet</button>
+            </div>
+            <div className="contact_form_button mx-3">
+              <button className="contact_button" onClick={() => handleeRUPIVoucher()}>eRUPI Voucher</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="contact_form_button mx-3">
-        <button className="contact_button" onClick={() => handleERupiClick()}>e-RUPI Transaction</button>
-      </div>
-      <div className="contact_form_button mx-3">
-        <button className="contact_button" onClick={() => CurrencyConverter()}>Currency Converter</button>
-      </div>
-      <div className="contact_form_button ml-3">
-        <button className="contact_button" onClick={() => handleExpressWalletClick()}>Express Wallet</button>
-      </div>
-    </div>
-  </div>
-</div>
+
 
         <PaymentsPage />
       </div>

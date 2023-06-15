@@ -25,6 +25,7 @@ import Erupi from './components/Erupi';
 import ScratchCard from './components/Scratch';
 import GiftCard from './components/GiftCards';
 import Transactionhistory from './components/Transactionhistory';
+import Voucher from './components/Voucher'
 import { useSelector } from 'react-redux';
 import { selectUser } from './features/userSlice';
 
@@ -63,6 +64,7 @@ const App = () => {
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/contact" element={<Contact />} />
           <Route exact path="/signup" element={<Signup />} />
+          <Route exact path="/voucher" element={<Voucher />} />
           <Route exact path="*" element={<Errorpage />} />        
         </Routes>
       </BrowserRouter>
