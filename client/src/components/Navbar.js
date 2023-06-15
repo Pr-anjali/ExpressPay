@@ -79,6 +79,8 @@ const Navbar = ({ user }) => {
         },
         credentials: "include"
       });
+      localStorage.removeItem('Authorization')
+      localStorage.removeItem('token')
       dispatch(logout());
       navigate('/', { replace: true });
     } catch (error) {

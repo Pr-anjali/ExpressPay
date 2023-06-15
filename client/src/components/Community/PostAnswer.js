@@ -18,7 +18,7 @@ const PostAnswer = ({ qid, setReload = f => f, reload, user }) => {
         event.preventDefault()
 
         if (!qid || desc.length < 10) {
-            window.alert("cannot reply may be invalid query or add valid reply")
+            window.alert("invalid query or add valid reply (length > 10)")
             return
         }
 

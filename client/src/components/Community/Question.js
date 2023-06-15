@@ -94,8 +94,7 @@ const Question = ({
                     credentials: "include"
                 });
                 const data = await res.json();
-                console.log("jai mata di")
-                console.log(data)
+               
                 setFetchedUserId(data._id)
                 if (res.status !== 200) {
                     const error = new Error(res.error);
@@ -229,9 +228,10 @@ const Question = ({
                             data={d}
                             reload={reload}
                             setReload={setReload}
+                            user ={user}
                         />
                     ))}
-                <PostAnswer qid={data._id} reload={reload} setReload={setReload} />
+                <PostAnswer qid={data._id} reload={reload} setReload={setReload} user={user} />
             </Collapse>
 
             <Grid container spacing={3}>

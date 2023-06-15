@@ -108,8 +108,7 @@ const Answer = ({
                     credentials: "include"
                 });
                 const data = await res.json();
-                console.log("jai mata di")
-                console.log(data)
+             
                 setFetchedUserId(data._id)
                 if (res.status !== 200) {
                     const error = new Error(res.error);
