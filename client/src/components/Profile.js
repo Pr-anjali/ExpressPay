@@ -112,6 +112,10 @@ const Profile = () => {
       return navigate('/voucher');
     }
 
+    const handleRazorpay = () => {
+      window.location.href = 'https://pages.razorpay.com/pl_M2VGLmWi8ObuF6/view';
+    }
+
     const Razorpayaay = async (paise) => {
         const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js');
 
@@ -279,7 +283,7 @@ const Profile = () => {
         <div className="col-md-12">
           <div className="d-flex justify-content-center">
             <div className="contact_form_button mx-3">
-              <button className="contact_button" onClick={() => Razorpayaay(2321)}>Digital Transaction</button>
+              <button className="contact_button" onClick={() => handleRazorpay()}>Digital Transaction</button>
             </div>
             <div className="contact_form_button mx-3">
               <button className="contact_button" onClick={() => CurrencyConverter()}>Currency Converter</button>
