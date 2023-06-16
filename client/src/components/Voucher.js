@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Voucher.css';
 import voucherImage from '../images/voucher.png';
 import axios from 'axios';
+import CouponPage from './CouponPage';
 
 const Voucher = () => {
   const [receiverName, setReceiverName] = useState('');
@@ -9,40 +10,60 @@ const Voucher = () => {
   const [amount, setAmount] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [purpose, setPurpose] = useState('');
+  const [couponData, setCouponData] = useState(null);
+  const [barcode, setBarcode] = useState('');
+  const [qrCode, setQrCode] = useState('');
+
+  useEffect(() => {
+    if (couponData) {
+      fetchBarcode();
+      fetchQRCode();
+    }
+  }, [couponData]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission
-    var data = JSON.stringify({
-      type: 'DISCOUNT_VOUCHER',
-      discount: {
-        amount_off: amount, // Use the amount entered by the user
-        type: 'AMOUNT'
-      },
-      redemption: {
-        quantity: 1
-      },
-      expiration_date: expiryDate, // Use the expiry date entered by the user
-      additional_info: purpose, // Use the purpose entered by the user
-      metadata: {}
-    });
-
-    var config = {
-      method: 'post',
-      url: 'https://as1.api.voucherify.io/v1/vouchers/abcdefnsjdjfn',
-      headers: {
-        'X-App-Id': '75ed398e-2e66-4c03-a1cd-bd2b7683ab53',
-        'X-App-Token': 'eee6eebb-9855-4bb9-9eaa-b1edbbaac064',
-        'Content-Type': 'application/json'
-      },
-      data: data
+    const data = {
+      receiverName,
+      mobileNumber,
+      amount,
+      expiryDate,
+      purpose
     };
 
-    axios(config)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data));
+    setCouponData(data);
+  };
+
+  const generateUniqueIdentifier = () => {
+    // Generate a unique identifier for QR code
+    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+  };
+
+  const fetchBarcode = () => {
+    // Placeholder URL for fetching barcode
+    const barcodeUrl = 'https://example-api.com/barcode/' + generateUniqueIdentifier(); // Replace with your actual barcode generation API
+
+    axios
+      .get(barcodeUrl)
+      .then((response) => {
+        setBarcode(response.data);
       })
-      .catch(function (error) {
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const fetchQRCode = () => {
+    // Placeholder URL for fetching QR code
+    const qrCodeUrl = 'https://example-api.com/qrcode/' + generateUniqueIdentifier(); // Replace with your actual QR code generation API
+
+    axios
+      .get(qrCodeUrl)
+      .then((response) => {
+        setQrCode(response.data);
+      })
+      .catch((error) => {
         console.log(error);
       });
   };
@@ -98,10 +119,22 @@ const Voucher = () => {
               required
             />
           </div>
-          <button type="submit" className="voucher-submit-btn">Submit</button>
+          <button type="submit" className="voucher-submit-btn">
+            Submit
+          </button>
         </form>
       </div>
       <img src={voucherImage} alt="Voucher" className="voucher-image" />
+      {couponData && (
+        <CouponPage
+          name={receiverName}
+          amount={amount}
+          purpose={purpose}
+          expiryDate={expiryDate}
+          barcode={barcode}
+          qrCode={qrCode}
+        />
+      )}
     </div>
   );
 };

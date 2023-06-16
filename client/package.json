@@ -19,6 +19,7 @@
     "fix": "^0.0.6",
     "plotly.js": "^2.24.1",
     "plotly.js-basic-dist": "^2.24.1",
+    "qrcode.react": "^3.1.0",
     "razorpay": "^2.8.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
