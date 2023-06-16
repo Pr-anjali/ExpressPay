@@ -1,0 +1,48 @@
+{
+    "id": "v_hjEZwgAi5q9PcK02iio5K3AUj7lOH3p5",
+    "code": "abcdefnsjdjfn",
+    "campaign": null,
+    "campaign_id": null,
+    "category": null,
+    "category_id": null,
+    "categories": [],
+    "type": "DISCOUNT_VOUCHER",
+    "discount": {
+        "type": "AMOUNT",
+        "amount_off": 2000
+    },
+    "gift": null,
+    "loyalty_card": null,
+    "start_date": null,
+    "expiration_date": null,
+    "validity_timeframe": null,
+    "validity_day_of_week": null,
+    "active": true,
+    "additional_info": null,
+    "metadata": {},
+    "assets": {
+        "qr": {
+            "id": "e4ea953f-7b0e-4522-a290-a42c00934778",
+            "url": "https://as1.dl.voucherify.io/api/v1/assets/qr/e4ea953f-7b0e-4522-a290-a42c00934778"
+        },
+        "barcode": {
+            "id": "ad8b52c8-2833-4041-a878-d1b00a61da92",
+            "url": "https://as1.dl.voucherify.io/api/v1/assets/barcode/ad8b52c8-2833-4041-a878-d1b00a61da92"
+        }
+    },
+    "is_referral_code": false,
+    "created_at": "2023-06-16T04:57:39.033Z",
+    "updated_at": null,
+    "redemption": {
+        "quantity": 1,
+        "redeemed_quantity": 0,
+        "object": "list",
+        "url": "/v1/vouchers/abcdefnsjdjfn/redemptions?page=1&limit=10"
+    },
+    "publish": {
+        "object": "list",
+        "count": 0,
+        "url": "/v1/vouchers/abcdefnsjdjfn/publications?page=1&limit=10"
+    },
+    "object": "voucher"
+}

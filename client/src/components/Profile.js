@@ -282,17 +282,18 @@ const Profile = () => {
               <button className="contact_button" onClick={() => Razorpayaay(2321)}>Digital Transaction</button>
             </div>
             <div className="contact_form_button mx-3">
-              <button className="contact_button" onClick={() => handleERupiClick()}>Direct Transfer</button>
-            </div>
-            <div className="contact_form_button mx-3">
               <button className="contact_button" onClick={() => CurrencyConverter()}>Currency Converter</button>
             </div>
             <div className="contact_form_button mx-3">
-              <button className="contact_button" onClick={() => handleExpressWalletClick()}>Express Wallet</button>
+              <button className="contact_button" onClick={() => handleERupiClick()}>Direct Transfer</button>
             </div>
             <div className="contact_form_button mx-3">
               <button className="contact_button" onClick={() => handleeRUPIVoucher()}>eRUPI Voucher</button>
             </div>
+            <div className="contact_form_button mx-3">
+              <button className="contact_button" onClick={() => handleExpressWalletClick()}>Express Wallet</button>
+            </div>
+      
           </div>
         </div>
       </div>

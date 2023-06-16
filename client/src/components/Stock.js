@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Plot from 'react-plotly.js';
-
+import Spinner from './Spinner';
 const Stock = () => {
   const [stockChartXValues, setStockChartXValues] = useState([]);
   const [stockChartYValues, setStockChartYValues] = useState([]);
@@ -14,7 +14,7 @@ const Stock = () => {
       const API_KEY = 'U9A3Y7LVCUKPS2C7';
   
       try {
-        setIsLoading(true); // Show the loader
+        setIsLoading(true); // Show the spinner
         const response = await fetch(
           `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${selectedStockSymbol}&outputsize=compact&apikey=${API_KEY}`
         );
@@ -26,10 +26,10 @@ const Stock = () => {
         );
         setStockChartXValues(extractedDates);
         setStockChartYValues(extractedOpenValues);
-        setIsLoading(false); // Hide the loader
       } catch (error) {
         console.error(error);
-        setIsLoading(false); // Hide the loader
+      } finally {
+        setIsLoading(false); // Hide the spinner whether there was an error or not
       }
     };
     fetchStock();
@@ -46,7 +46,7 @@ const Stock = () => {
       <h1 className='text-center'>Express Stocks</h1>
      
       {isLoading ? (
-        <div className='text-center'>Loading...</div> // Show loader while fetching data
+        <div className='text-center'><Spinner/></div> // Show loader while fetching data
       ) : (
         <>
         

@@ -14,20 +14,22 @@ const Voucher = () => {
     e.preventDefault();
     // Handle form submission
     var data = JSON.stringify({
-      "type": "DISCOUNT_VOUCHER",
-      "discount": {
-        "amount_off": "2000",
-        "type": "AMOUNT"
+      type: 'DISCOUNT_VOUCHER',
+      discount: {
+        amount_off: amount, // Use the amount entered by the user
+        type: 'AMOUNT'
       },
-      "redemption": {
-        "quantity": 1
+      redemption: {
+        quantity: 1
       },
-      "metadata": {}
+      expiration_date: expiryDate, // Use the expiry date entered by the user
+      additional_info: purpose, // Use the purpose entered by the user
+      metadata: {}
     });
 
     var config = {
       method: 'post',
-      url: 'https://as1.api.voucherify.io/v1/vouchers/366375b3-50f0-47e4-8772-b6e279bb2a7c',
+      url: 'https://as1.api.voucherify.io/v1/vouchers/abcdefnsjdjfn',
       headers: {
         'X-App-Id': '75ed398e-2e66-4c03-a1cd-bd2b7683ab53',
         'X-App-Token': 'eee6eebb-9855-4bb9-9eaa-b1edbbaac064',
@@ -96,7 +98,7 @@ const Voucher = () => {
               required
             />
           </div>
-          <button type="submit" className="voucher-submit-btn" onSubmit={handleSubmit}>Submit</button>
+          <button type="submit" className="voucher-submit-btn">Submit</button>
         </form>
       </div>
       <img src={voucherImage} alt="Voucher" className="voucher-image" />
