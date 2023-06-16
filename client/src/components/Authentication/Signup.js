@@ -41,8 +41,13 @@ const Signup = () => {
     else {
       window.alert("Registration successful")
       console.log("Successful Registration")
+
       console.log(data);
-      dispatch(login(data)); 
+      dispatch(login({
+        email: email,
+        password: password,
+        isLoggedin: true,
+      }));
       navigate('/');
     }
   }

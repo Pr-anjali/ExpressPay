@@ -79,6 +79,8 @@ const Profile = () => {
         setAccountNo(newAccountNo);
         setPin(newPin);
         saveAccountInfo();
+        setUserData({ ...userData, accountno: newAccountNo, pin : newPin });
+        console.log(userData);
       } else {
         return navigate('/profile');
       }

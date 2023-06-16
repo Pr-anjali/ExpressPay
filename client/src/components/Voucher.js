@@ -24,12 +24,29 @@ const Voucher = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission
-    const data = {
-      receiverName,
-      mobileNumber,
-      amount,
-      expiryDate,
-      purpose
+    var data = JSON.stringify({
+      type: 'DISCOUNT_VOUCHER',
+      discount: {
+        amount_off: amount, // Use the amount entered by the user
+        type: 'AMOUNT'
+      },
+      redemption: {
+        quantity: 1
+      },
+      expiration_date: expiryDate, // Use the expiry date entered by the user
+      additional_info: purpose, // Use the purpose entered by the user
+      metadata: {}
+    });
+
+    var config = {
+      method: 'post',
+      url: 'https://as1.api.voucherify.io/v1/vouchers/',
+      headers: {
+        'X-App-Id': '75ed398e-2e66-4c03-a1cd-bd2b7683ab53',
+        'X-App-Token': 'eee6eebb-9855-4bb9-9eaa-b1edbbaac064',
+        'Content-Type': 'application/json'
+      },
+      data: data
     };
 
     setCouponData(data);
@@ -119,9 +136,7 @@ const Voucher = () => {
               required
             />
           </div>
-          <button type="submit" className="voucher-submit-btn">
-            Submit
-          </button>
+          <button type="submit" className="voucher-submit-btn" onSubmit={handleSubmit}>Submit</button>
         </form>
       </div>
       <img src={voucherImage} alt="Voucher" className="voucher-image" />

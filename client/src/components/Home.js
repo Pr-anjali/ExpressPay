@@ -20,8 +20,11 @@ const Home = () => {
                         },
                     });
                     const data = await res.json();
+                    
+                    console.log(data);
                     setUserName(data.name);
                 } catch (err) {
+                    console.log("eroor received")
                     console.log(err);
                 }
             }

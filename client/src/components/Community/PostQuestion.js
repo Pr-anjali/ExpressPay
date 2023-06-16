@@ -54,7 +54,7 @@ const PostQuestion = ({ setReload = f => f, reload, user }) => {
             return
         }
 
-        if (!user.isLoggedin) {
+        if (!user?.isLoggedin) {
             window.alert("Please Sign in to continue")
             return
         }

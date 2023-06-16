@@ -138,6 +138,7 @@ router.get('/findTransaction', authenticate, async (req, res) => {
 // using promises  
 
 router.post('/register', (req, res) => {
+  let token;
 
   const { name, email, phone, password, cpassword } = req.body;
 
@@ -152,13 +153,25 @@ router.post('/register', (req, res) => {
       }
 
       const user = new User({ name, email, phone, password, cpassword });
+      
 
-      user.save().then(() => {
-        res.status(201).json({ message: "user registered successfuly" });
+      
+  
+      user.save().then( async () => {
+        token = await user.generateAuthToken();
+        res.cookie("jwtoken", token, {
+          expires: new Date(Date.now() + 25892000000),  //one month
+          httpOnly: true
+        });
+        
+        
+        res.status(201).json({ message: "user registered successfuly", token: token  });
+
       }).catch((err) => { console.log(err); return res.status(500).json({ error: "error" }) });
 
     }).catch(err => { console.log(err); });
 
+    
 
 });
 
@@ -180,7 +193,7 @@ router.post('/signin', async (req, res) => {
     if (userLogin) {
       const isMatch = await bcrypt.compare(password, userLogin.password);
 
-
+  
 
       if (!isMatch) {
         res.status(400).json({ error: "Invalid Credientials " });
@@ -211,6 +224,8 @@ router.get('/about', authenticate, (req, res) => {
   console.log(`Hello my About`);
   res.send(req.rootUser);
 });
+
+
 
 // get user data for contact us and home page 
 router.get('/getdata', authenticate, (req, res) => {
