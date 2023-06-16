@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Voucher.css';
 import voucherImage from '../images/voucher.png';
 import axios from 'axios';
+import CouponPage from './CouponPage';
 
 const Voucher = () => {
   const [receiverName, setReceiverName] = useState('');
@@ -9,6 +10,16 @@ const Voucher = () => {
   const [amount, setAmount] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [purpose, setPurpose] = useState('');
+  const [couponData, setCouponData] = useState(null);
+  const [barcode, setBarcode] = useState('');
+  const [qrCode, setQrCode] = useState('');
+
+  useEffect(() => {
+    if (couponData) {
+      fetchBarcode();
+      fetchQRCode();
+    }
+  }, [couponData]);
   const [num, setNum] = useState(0);
 
   const handleSubmit = (e) => {
@@ -39,11 +50,39 @@ const Voucher = () => {
       data: data
     };
 
-    axios(config)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data));
+    setCouponData(data);
+  };
+
+  const generateUniqueIdentifier = () => {
+    // Generate a unique identifier for QR code
+    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+  };
+
+  const fetchBarcode = () => {
+    // Placeholder URL for fetching barcode
+    const barcodeUrl = 'https://example-api.com/barcode/' + generateUniqueIdentifier(); // Replace with your actual barcode generation API
+
+    axios
+      .get(barcodeUrl)
+      .then((response) => {
+        setBarcode(response.data);
       })
-      .catch(function (error) {
+      .catch((error) => {
+        console.log(error);
+      });
+      
+  };
+
+  const fetchQRCode = () => {
+    // Placeholder URL for fetching QR code
+    const qrCodeUrl = 'https://example-api.com/qrcode/' + generateUniqueIdentifier(); // Replace with your actual QR code generation API
+
+    axios
+      .get(qrCodeUrl)
+      .then((response) => {
+        setQrCode(response.data);
+      })
+      .catch((error) => {
         console.log(error);
       });
       
@@ -104,6 +143,16 @@ const Voucher = () => {
         </form>
       </div>
       <img src={voucherImage} alt="Voucher" className="voucher-image" />
+      {couponData && (
+        <CouponPage
+          name={receiverName}
+          amount={amount}
+          purpose={purpose}
+          expiryDate={expiryDate}
+          barcode={barcode}
+          qrCode={qrCode}
+        />
+      )}
     </div>
   );
 };
