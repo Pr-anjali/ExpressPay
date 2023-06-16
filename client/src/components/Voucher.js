@@ -1,8 +1,9 @@
+
 import React, { useState, useEffect } from 'react';
 import '../styles/Voucher.css';
 import voucherImage from '../images/voucher.png';
 import axios from 'axios';
-import CouponPage from './CouponPage';
+
 
 const Voucher = () => {
   const [receiverName, setReceiverName] = useState('');
@@ -10,33 +11,24 @@ const Voucher = () => {
   const [amount, setAmount] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [purpose, setPurpose] = useState('');
-  const [couponData, setCouponData] = useState(null);
-  const [barcode, setBarcode] = useState('');
-  const [qrCode, setQrCode] = useState('');
+  const [num,setNum]=useState('');
+  const [submitted, setSubmitted] = useState(false); // Track form submission
+  const [qrCodeUrl, setQrCodeUrl] = useState('');
+  const [barcodeUrl, setBarcodeUrl] = useState('');
 
-  useEffect(() => {
-    if (couponData) {
-      fetchBarcode();
-      fetchQRCode();
-    }
-  }, [couponData]);
-  const [num, setNum] = useState(0);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission
-    setNum(Math.random())
+    e.preventDefault()
     var data = JSON.stringify({
-      type: 'DISCOUNT_VOUCHER',
-      discount: {
-        amount_off: amount, // Use the amount entered by the user
-        type: 'AMOUNT'
+      "type": "DISCOUNT_VOUCHER",
+      "discount": {
+        "amount_off": "2000",
+        "type": "AMOUNT"
       },
-      redemption: {
-        quantity: 1
+      "redemption": {
+        "quantity": 1
       },
-      // Use the purpose entered by the user
-      metadata: {}
+      "metadata": {}
     });
 
     var config = {
@@ -50,43 +42,39 @@ const Voucher = () => {
       data: data
     };
 
-    setCouponData(data);
-  };
+    axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+      setSubmitted(true); // Update the state to indicate form submission
+      setQrCodeUrl(response.data.assets.qr.url);
+      setBarcodeUrl(response.data.assets.barcode.url);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+};
 
-  const generateUniqueIdentifier = () => {
-    // Generate a unique identifier for QR code
-    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-  };
-
-  const fetchBarcode = () => {
-    // Placeholder URL for fetching barcode
-    const barcodeUrl = 'https://example-api.com/barcode/' + generateUniqueIdentifier(); // Replace with your actual barcode generation API
-
-    axios
-      .get(barcodeUrl)
-      .then((response) => {
-        setBarcode(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-      
-  };
-
-  const fetchQRCode = () => {
-    // Placeholder URL for fetching QR code
-    const qrCodeUrl = 'https://example-api.com/qrcode/' + generateUniqueIdentifier(); // Replace with your actual QR code generation API
-
-    axios
-      .get(qrCodeUrl)
-      .then((response) => {
-        setQrCode(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-      
-  };
+// Render coupon box if form is submitted
+const renderCouponBox = () => {
+  if (submitted) {
+    return (
+      <div className="coupon-box">
+        <div className="coupon-content">
+          <h3 className="coupon-heading">Voucher Details</h3>
+          <p className="coupon-text">Receiver's Name: {receiverName}</p>
+          <p className="coupon-text">Amount: {amount}</p>
+          <p className="coupon-text">Purpose: {purpose}</p>
+          <p className="expiry-date">Expiry Date: {expiryDate}</p>
+        </div>
+        <div className="code-images">
+          <img src={qrCodeUrl} alt="QR Code" className="qr-code" />
+          <img src={barcodeUrl} alt="Barcode" className="barcode" />
+        </div>
+      </div>
+    );
+  }
+  return null;
+};
 
   return (
     <div className="voucher-container">
@@ -139,20 +127,13 @@ const Voucher = () => {
               required
             />
           </div>
-          <button type="submit" className="voucher-submit-btn" onSubmit={handleSubmit}>Submit</button>
+          <button type="submit" className="voucher-submit-btn">
+            Submit
+          </button>
         </form>
       </div>
+      <div className="coupon-container">{renderCouponBox()}</div>
       <img src={voucherImage} alt="Voucher" className="voucher-image" />
-      {couponData && (
-        <CouponPage
-          name={receiverName}
-          amount={amount}
-          purpose={purpose}
-          expiryDate={expiryDate}
-          barcode={barcode}
-          qrCode={qrCode}
-        />
-      )}
     </div>
   );
 };
