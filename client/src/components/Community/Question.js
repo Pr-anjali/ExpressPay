@@ -235,7 +235,7 @@ const Question = ({
             </Collapse>
 
             <Grid container spacing={3}>
-                {user?.isLoggedin && fetchedUserId === data.author._id && (
+                {user.isLoggedin && fetchedUserId === data.author._id && (
                     //alignSelf: "center"
                     <Grid item style={{ margin: 10, justifyContent: "space-between" }}>
                         {disabled && (

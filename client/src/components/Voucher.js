@@ -9,10 +9,12 @@ const Voucher = () => {
   const [amount, setAmount] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [purpose, setPurpose] = useState('');
+  const [num, setNum] = useState(0);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission
+    setNum(Math.random())
     var data = JSON.stringify({
       type: 'DISCOUNT_VOUCHER',
       discount: {
@@ -22,14 +24,13 @@ const Voucher = () => {
       redemption: {
         quantity: 1
       },
-      expiration_date: expiryDate, // Use the expiry date entered by the user
-      additional_info: purpose, // Use the purpose entered by the user
+      // Use the purpose entered by the user
       metadata: {}
     });
 
     var config = {
       method: 'post',
-      url: 'https://as1.api.voucherify.io/v1/vouchers/',
+      url: `https://as1.api.voucherify.io/v1/vouchers/${num}`,
       headers: {
         'X-App-Id': '75ed398e-2e66-4c03-a1cd-bd2b7683ab53',
         'X-App-Token': 'eee6eebb-9855-4bb9-9eaa-b1edbbaac064',
@@ -45,6 +46,7 @@ const Voucher = () => {
       .catch(function (error) {
         console.log(error);
       });
+      
   };
 
   return (
