@@ -6,9 +6,9 @@ import ottImage from '../images/ott.jpeg';
 import cableTvImage from '../images/cable-tv.png';
 import electricityImage from '../images/electricity.png';
 import rentImage from '../images/rent.png';
-import educationFeesImage from '../images/education-fees.jpeg';
+import educationFeesImage from '../images/fees.png';
 import disneyHotstarImage from '../images/disney-hotstar.jpeg';
-import amazonPrimeImage from '../images/amazon-prime.jpeg';
+import amazonPrimeImage from '../images/prime.png';
 import netflixImage from '../images/netflix.png';
 import spotifyImage from '../images/spotify.png';
 
