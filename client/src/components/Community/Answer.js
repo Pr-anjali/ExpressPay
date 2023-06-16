@@ -127,7 +127,7 @@ const Answer = ({
         data.votes.filter(vote => vote.vote === false).length
 
     const votes = data.votes
-    const userId = user.isLoggedin ? fetchedUserId : null
+    const userId = user?.isLoggedin ? fetchedUserId : null
 
     const hasVoted = userId => {
         return votes?.find(vote => {
@@ -139,7 +139,7 @@ const Answer = ({
     const postVote = async (vote, rid) => {
         try {
 
-            if (!user.isLoggedin) {
+            if (!user?.isLoggedin) {
                 window.alert("Please Sign in to continue")
                 return
             }
@@ -162,7 +162,7 @@ const Answer = ({
 
         event.preventDefault()
 
-        if (!user.isLoggedin) {
+        if (!user?.isLoggedin) {
             window.alert("Please Sign in to continue")
             return
         }
@@ -185,7 +185,7 @@ const Answer = ({
     const UpdateReply = async event => {
         event.preventDefault()
 
-        if (!user.isLoggedin) {
+        if (!user?.isLoggedin) {
             window.alert("Please Sign in to continue")
             return
         }
@@ -284,7 +284,7 @@ const Answer = ({
                         </ButtonGroup>
                     </Grid>
                 </Grid>
-                {user.isLoggedin && fetchedUserId === data.author._id && (
+                {user?.isLoggedin && fetchedUserId === data.author._id && (
                     <Grid item style={{ margin: 10, alignSelf: "center" }}>
                         <ButtonGroup
                             color="primary"
