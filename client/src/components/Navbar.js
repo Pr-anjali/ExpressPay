@@ -18,13 +18,13 @@ const Navbar = ({ user }) => {
     if (user) {
       return (
         <li className="nav nav-item navbar navbar-light bg-light">
-          <Link className="nav-link" onClick={handleLogout}>Logout</Link>
+          <Link style={{color : "black"}} className="nav-link" onClick={handleLogout}>Logout</Link>
         </li>
       );
     } else {
       return (
         <li className="nav nav-item navbar navbar-light bg-light">
-          <Link className="nav-link" to="/login">Login/Signup</Link>
+          <Link style={{color : "black"}} className="nav-link" to="/login">Login/Signup</Link>
         </li>
       );
     }
@@ -34,7 +34,7 @@ const Navbar = ({ user }) => {
     if (user) {
       return (
         <li className="nav nav-item navbar navbar-light bg-light">
-          <Link className="nav-link" to="/community">Community</Link>
+          <Link  style={{color : "black"}} className="nav-link" to="/community">Community</Link>
         </li>
       );
     } else {
@@ -47,7 +47,7 @@ const Navbar = ({ user }) => {
     if (user) {
       return (
         <li className="nav nav-item navbar navbar-light bg-light">
-          <Link className="nav-link" to="/profile">Profile</Link>
+          <Link style={{color : "black"}} className="nav-link" to="/profile">Profile</Link>
         </li>
       );
     } else {
@@ -60,7 +60,7 @@ const Navbar = ({ user }) => {
     if (user) {
       return (
         <li className="nav nav-item navbar navbar-light bg-light">
-          <Link className="nav-link" to="/rewards">Rewards</Link>
+          <Link style={{color : "black"}} className="nav-link" to="/rewards">Rewards</Link>
         </li>
       );
     } else {
@@ -94,8 +94,8 @@ const Navbar = ({ user }) => {
     return (
       <>
         <div className="navbar navbar-light bg-light">
-          <li className="nav nav-item navbar navbar-light bg-light">
-            <Link className="nav-link" aria-current="page" to="/">Home</Link>
+          <li className="nav nav-item navbar navbar-light bg-light" style={{color : "black"}}>
+            <Link className="nav-link" style={{color : "black"}} aria-current="page" to="/">Home</Link>
           </li>
           <li className="nav nav-item navbar navbar-light bg-light">
             {renderProfileButton()}
@@ -104,13 +104,13 @@ const Navbar = ({ user }) => {
             {renderRewardsButton()}
           </li>
           <li className="nav nav-item navbar navbar-light bg-light">
-            <Link className="nav-link" to="/contact">Contact</Link>
+            <Link style={{color : "black"}} className="nav-link" to="/contact">Contact</Link>
           </li>
           <li className="nav nav-item navbar navbar-light bg-light">
-            <Link className="nav-link" to="/news">News</Link>
+            <Link style={{color : "black"}}className="nav-link" to="/news">News</Link>
           </li>
           <li className="nav nav-item navbar navbar-light bg-light">
-            <Link className="nav-link" to="/stock">Stocks</Link>
+            <Link style={{color : "black"}} className="nav-link" to="/stock">Stocks</Link>
           </li>
           <li className="nav nav-item navbar navbar-light bg-light">
           <li className="nav nav-item navbar navbar-light bg-light">
