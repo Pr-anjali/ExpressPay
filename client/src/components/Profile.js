@@ -90,7 +90,7 @@ const Profile = () => {
   };
    
   const handleExpressWalletClick = () => {
-    window.location.href = 'https://master--stupendous-alfajores-fe87b7.netlify.app/';
+    window.location.href = 'https://master--fascinating-salamander-f4a7a6.netlify.app/';
   }
 
     const loadScript = (src) => {

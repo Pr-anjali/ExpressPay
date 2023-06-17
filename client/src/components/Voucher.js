@@ -70,6 +70,7 @@ const renderCouponBox = () => {
           <img src={qrCodeUrl} alt="QR Code" className="qr-code" />
           <img src={barcodeUrl} alt="Barcode" className="barcode" />
         </div>
+        
       </div>
     );
   }
