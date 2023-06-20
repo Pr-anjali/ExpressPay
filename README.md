@@ -32,15 +32,15 @@ npm install <package_name>
 or 
 npm install <package_name> --force
 
-# 7.	User Registration:
+# 8.	User Registration:
 •	Click on the "Sign Up" button on the homepage to create a new user account. <br />
 •	Fill in the required details and submit the form. <br />
 •	Upon successful registration, you will be redirected to the home page.
 
-# 8.	User Login:
+# 9.	User Login:
 •	Use the registered credentials to log in to the system. <br />
 •	After successful login, you will be redirected to the home page.
 
-# 9.	Now you are ready to explore our website.
+# 10.	Now you are ready to explore our website.
 
 With the ExpressPay digital wallet system, users can securely manage their digital assets, add funds, initiate transactions, and view transaction history. The integration with the e-RUPI using the Voucherify api that provides unique QR and Bar-code which can be scanned by user’s unique id enables seamless transactions using e-RUPI vouchers. The system prioritizes user experience, security, and reliability to provide a robust and user-friendly digital wallet solution.
