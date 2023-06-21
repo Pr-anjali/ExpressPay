@@ -83,7 +83,7 @@ render() {
         {!this.state.loading && this.state.articles.map((element) => (
           <div className='col-md-4' key={element.url}>
             <div className="news-item">
-              <img src={element.urlToImage} alt="News" className="news-image" />
+              <img src={!element.urlToImage?"https://dailyhodl.com/wp-content/uploads/2022/09/binance-expands-trading-operations.jpg": element.urlToImage} alt="News" className="news-image" />
               <div className="news-content">
                 <h2 className="news-title">{element.title ? element.title.slice(0, 18) : ""}</h2>
                 <p className="news-description">{element.description ? element.description.slice(0, 50) : ""}</p>
